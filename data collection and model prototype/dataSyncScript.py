@@ -44,6 +44,9 @@ def get_team_ids():
         return output
     
 def get_squad(team_id_df):
+    '''
+    Getting teams squad
+    '''
     output = pd.DataFrame()
     for i in team_id_df.team_id.values:
         squad_url = 'https://v3.football.api-sports.io/players/squads?team={0}'.format(i)
@@ -121,3 +124,12 @@ for i in player_id_request_list:
         
 team_players_df = team_players_df.groupby(static_variables, as_index=False)[dynamic_variables].sum()        
 team_players_df['games.rating'] = team_players_df['games.rating'] / team_players_df.tournaments
+
+# generating age categories for players:
+player_id_df.loc[player_id_df.age < 20, 'age_group'] = 'age below 20'
+player_id_df.loc[(player_id_df.age >= 20) & (player_id_df.age <= 23), 'age_group'] = '20-23 age'
+player_id_df.loc[(player_id_df.age >= 24) & (player_id_df.age <= 30), 'age_group'] = '24-30 age'
+player_id_df.loc[player_id_df.age > 30, 'age_group'] = 'age above 30'
+
+player_id_df = player_id_df.merge(team_id_df.drop('season',axis=1), on='team_id', how='left')
+player_id_df.merge(team_players_df, on=['player.id'], how='right').to_csv('players_list.csv',index=False)

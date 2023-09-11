@@ -10,6 +10,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'views'), {index: "home.html"}));
 app.set('view engine', 'html');
+require('./dbConnection.js');
+//let router = require('./routes/index.js');
 
 
 // Define routes and middleware here
