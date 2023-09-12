@@ -41,7 +41,7 @@ async function getPrediction(req, res) {
             }
 
             // Klusteting data set
-            kmeans.clusterize(vectors, { k: 5 }, (err, res) => {
+            test = kmeans.clusterize(vectors, { k: 5 }, (err, res) => {
                 if (!err) {
 
                     // convering cenroids into rating values
