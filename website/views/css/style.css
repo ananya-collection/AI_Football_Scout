@@ -16,13 +16,43 @@ body{
 .header-container{    
     background-color: #d7fa86;
 }
-.header-heading h1{
-    text-align: center;
-    color: #10002B;
-    padding: 20px;
-    font-size: 35px;
-    margin-bottom: 20px;
+
+.header-navigation nav{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    padding: 2px 100px 2px 100px;
+    background-color: #d7fa86;
+    position: fixed;
+
 }
+.header-navigation nav .logo img{
+    float: left;
+    max-width: 100%;
+    max-height: 75px;
+
+
+}
+.header-navigation nav ul{
+    float: right;
+}
+.header-navigation nav li{
+    display: inline-block;
+    list-style: none;
+}
+.header-navigation nav li a{
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0px 30px;
+    color: #2B2D42;
+    font-weight: 500;
+    text-decoration: none;
+}
+.header-navigation nav li a:hover{
+    color: #FB8B24;
+    transition: all 0.4s ease 0s;
+}
+
 main{
     width: 90vw;
     margin: 0 auto;
