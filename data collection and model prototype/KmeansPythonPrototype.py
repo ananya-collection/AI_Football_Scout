@@ -39,8 +39,8 @@ for m in positions_list:
         temp.drop(temp_columns, axis=1, inplace=True)
         temp = temp.sort_values('rating')
         temp = temp.reset_index().rename(columns={'index':'predictions'})
-        temp.loc[0:1,'player_category'] = 'low appereances'
-        temp.loc[1:2,'player_category'] = 'below average'
+        temp.loc[0:1,'player_category'] = 'lowAppereances'
+        temp.loc[1:2,'player_category'] = 'belowAverage'
         temp.loc[2:3,'player_category'] = 'average'
         temp.loc[3:4,'player_category'] = 'prospective'
         temp.loc[4:,'player_category'] = 'top'

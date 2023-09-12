@@ -9,6 +9,5 @@ const client = new MongoClient(uri, {
 });
 
 client.connect();
-console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
 module.exports = client; 
