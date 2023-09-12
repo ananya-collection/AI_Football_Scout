@@ -3,7 +3,7 @@ let app = express();
 let port = process.env.port ||3000;
 const path = require('path');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 app.use(express.json());
