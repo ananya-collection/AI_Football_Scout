@@ -8,11 +8,18 @@ const jwt = require('jsonwebtoken');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'views'), {index: "home.html"}));
-app.set('view engine', 'html');
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'views'), {index: "home"}));
+app.set('views', 'views');
+app.set('view engine', 'ejs')
+
+
 require('./dbConnection.js');
 let router = require('./routes/router.js');
+
+
 app.use('/api', router)
+app.use('/',router)
 
 
 
