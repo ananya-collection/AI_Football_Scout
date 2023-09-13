@@ -8,9 +8,6 @@ https://coolors.co/palette/0081a7-00afb9-fdfcdc-fed9b7-f07167
 
 .page-footer {
     background-color: #f07167;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 
 }
 
@@ -31,13 +28,5 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    
 }
