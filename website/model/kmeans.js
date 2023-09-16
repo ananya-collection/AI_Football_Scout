@@ -1,8 +1,10 @@
 let client = require('../dbConnection.js');
-let aiCollectionInput = client.db('AIFootballScout').collection('AiModelDataInput');
 const kmeans = require('node-kmeans');
+let aiCollectionInput = client.db('AIFootballScout').collection('AiModelDataInput');
+let aiCollectionOutput = client.db('AIFootballScout').collection('UserAiRequests');
 
-console.log("You successfully connected to AiModelDataInput Collection!");
+
+console.log("You successfully connected to AIFootballScout Collection!");
 
 
 async function getDataForPrediction(request, callback) {
@@ -38,7 +40,7 @@ const cluserKpis = ['games_appearences', 'games_lineups', 'games_minutes', 'game
 const attackerKpis = [2, 12, 11, 14, 25, 17];
 const midfielderKpis = [2, 21, 23, 14, 25, 17]
 const defenderKpis = [2, 21, 23, 20, 16, 17]
-const goalkeeperKpis = [2, 15, 36, 16]
+const goalkeeperKpis = [2, 17, 13, 15, 36, 16]
 
 function getPrediction(request) {
     return new Promise((resolve, reject) => {
@@ -70,7 +72,6 @@ function convertPrediction(request, playerCategory) {
     for (var i = 0; i < 5; i++) {
         rating['cluster' + i] = (targetKpis.map(x => Math.round(request[i].centroid[x] * 100) / 100));
     }
-
     for (var m = 0; m < rating.cluster0.length; m++) {
         subrating = [];
         for (var i = 0; i < 5; i++) {
@@ -106,8 +107,7 @@ function convertPrediction(request, playerCategory) {
             rating['cluster' + u] = 'prospective'
         else if (rating['cluster' + u] === rating_final[4])
             rating['cluster' + u] = 'top'
-    }
-
+    }    
     var clustered = {}
     for (var i = 0; i < 5; i++) {
         clustered[rating['cluster' + i]] = request[i].clusterInd;
@@ -115,4 +115,9 @@ function convertPrediction(request, playerCategory) {
     return clustered
 };
 
-module.exports = { getDataForPrediction, convertDataForPrediction, getPrediction, convertPrediction }
+
+function insertAiRequest(request, callback) {
+    aiCollectionOutput.insertOne(request, callback);
+}
+
+module.exports = { getDataForPrediction, convertDataForPrediction, getPrediction, convertPrediction, insertAiRequest }
