@@ -14,126 +14,6 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-
-    <link id="heading-font" rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" media="all" />
-
-    <script>
-      window.tailwind.config = {
-        "darkMode": "class",
-        "theme": {
-          "fontFamily": {
-            "heading": ["DM Sans", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "\"Segoe UI\"", "Roboto", "\"Helvetica Neue\"", "Arial", "\"Noto Sans\"", "sans-serif", "\"Apple Color Emoji\"", "\"Segoe UI Emoji\"", "\"Segoe UI Symbol\"", "\"Noto Color Emoji\""],
-            "body": ["DM Sans", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "\"Segoe UI\"", "Roboto", "\"Helvetica Neue\"", "Arial", "\"Noto Sans\"", "sans-serif", "\"Apple Color Emoji\"", "\"Segoe UI Emoji\"", "\"Segoe UI Symbol\"", "\"Noto Color Emoji\""]
-          },
-          "extend": {
-            "borderRadius": {
-              "global": "5px"
-            },
-            "colors": {
-              "primary": {
-                "50": "#f8f5ff",
-                "100": "#eee6fe",
-                "200": "#ddcefd",
-                "300": "#c1a6fc",
-                "400": "#844df9",
-                "500": "#4d07e4",
-                "600": "#3705a3",
-                "700": "#280477",
-                "800": "#170245",
-                "900": "#0c0123",
-                "950": "#070114",
-                "DEFAULT": "#570df8"
-              },
-              "secondary": {
-                "50": "#fff5fd",
-                "100": "#ffe6f9",
-                "200": "#fecdf3",
-                "300": "#fea4e9",
-                "400": "#fd49d3",
-                "500": "#e802b3",
-                "600": "#a70280",
-                "700": "#79015d",
-                "800": "#470136",
-                "900": "#23001b",
-                "950": "#140010",
-                "DEFAULT": "#f002b8"
-              }
-            }
-          }
-        },
-        "plugins": [window.tailwind.plugin.withOptions(({
-          prefix = "ui"
-        } = {}) => {
-          return ({
-            addVariant
-          }) => {
-            for (let state of ["open", "checked", "selected", "active", "disabled"]) {
-              addVariant(`${prefix}-${state}`, [
-                `&[data-headlessui-state~="${state}"]`,
-                `:where([data-headlessui-state~="${state}"]) &`,
-              ]);
-  
-              addVariant(`${prefix}-not-${state}`, [
-                `&[data-headlessui-state]:not([data-headlessui-state~="${state}"])`,
-                `:where([data-headlessui-state]:not([data-headlessui-state~="${state}"])) &:not([data-headlessui-state])`,
-              ]);
-            }
-          };
-        }), ]
-      };
-    </script>
-    <style>
-  #about-section {
-      padding: 40px 0;
-      text-align: center;
-  }
-  
-  .about-title {
-      color: #333;
-      font-size: 108px;
-      margin-bottom: 20px;
-      width: -webkit-fill-available;
-  }
-  
-  .about-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: baseline;
-  }
-  
-  .about-text {
-      max-width: 600px;
-      text-align: left;
-      margin-right: 20px;
-      font-size: 30px;
-  }
-  
-  .about-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 50%;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-      margin-top: 33px;
-  }
-  
-  /* Responsive styles */
-  @media screen and (min-width: 768px) {
-      .about-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: baseline;
-        margin-bottom: 20px;
-      }
-  
-      .about-text {
-          margin-right: 40px;
-      }
-  }
-  </style>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -156,22 +36,81 @@
     </nav>
 
     <main>
-      <section id="about-section">
         <div class="container">
-            <h1 class="about-title">About Us</h1>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>We are a team of passionate individuals dedicated to providing valuable insights and information about various topics.</p>
-                    <p>Our mission is to make learning fun and accessible for everyone.</p>
+            <h1>About Us</h1>
+                
+            <h4>Company Specialization: Pioneering AI-Driven Advancements in the Football Industry</h4>  
+        
+               <p>At AI Football Innovations, we stand as pioneers in the dynamic landscape of sports technology, specializing in cutting-edge AI-driven solutions meticulously crafted to transform the football industry. Our journey is defined by a passionate commitment to harness the power of artificial intelligence to revolutionize the way football is played, coached, and experienced.</p>
+        
+               <h4>Unleashing AI for Football's Evolution </h4>
+        
+        <p>In the heart of our specialization lies the relentless pursuit of innovation. We believe that AI holds the potential to redefine the very essence of football, pushing its boundaries beyond conventional limits. Our goal is nothing less than the transformation of football into a more intelligent, engaging, and data-driven sport.</p>
+        
+        <h4>Enhancing Player Performance</h4>
+        
+        <p>Our AI-driven solutions are designed to empower athletes, coaches, and teams alike. We meticulously analyze player performance, employing machine learning algorithms to provide unparalleled insights into each player's strengths, weaknesses, and potential areas for improvement. By quantifying and visualizing player data, we help teams make data-informed decisions that optimize player performance and prevent injuries.</p>
+        
+        <h4>Revolutionizing Coaching Strategies</h4>
+        
+        <p>Coaching is at the heart of success in football, and we empower coaches with AI tools that are revolutionizing the game. From real-time tactical analysis to predictive playmaking, our solutions enable coaches to develop strategies that outsmart the competition. The power of AI is harnessed to simulate game scenarios, helping coaches fine-tune their strategies and maximize their team's potential.</p>
+        
+        <h4>Elevating Fan Experiences</h4>
+        
+        <p>Football is not just about what happens on the field; it's also about the passion and excitement it brings to fans worldwide. Our commitment to enhancing fan experiences is unwavering. Through AI-driven analytics, we provide fans with immersive and personalized content, allowing them to dive deeper into the game's intricacies and follow their favorite teams and players more closely.</p>
+        
+        <h4>A Collaborative Team of Visionaries</h4>
+        
+        <p>Our journey is made possible by a team of dedicated visionaries who share a passion for football and AI technology. From data scientists and AI engineers to UX designers and football enthusiasts, our diverse team collaborates to push the boundaries of what's possible.</p>
+        
+        <h4>Join Us in Shaping Football's Future</h4>
+        
+        <p>As we continue to pioneer AI-driven advancements in the football industry, we invite you to join us in shaping the future of the game. Whether you're a player, coach, team, or fan, AI Football Innovations is dedicated to enhancing your journey in the world of football through the power of artificial intelligence.
+        
+        Together, we are redefining the beautiful game, one AI-driven innovation at a time.
+        This extended description highlights the company's dedication to using AI to enhance player performance, coaching strategies, and fan experiences in the football industry. It also emphasizes the collaborative spirit of the team and invites others to be a part of the journey toward shaping football's future.
+            </p>
+            <p>
+                <strong>Our Team:</strong> Meet the passionate minds driving AI Football Innovations forward.
+            </p>
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1921&q=80" alt="John Doe">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">John Doe</span>
+                            <p>AI Engineer</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://www.searchenginejournal.com/wp-content/uploads/2018/04/Doomtree-About-Us.jpg" alt="Team Photo">
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1921&q=80" alt="Jane Smith">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">Jane Smith</span>
+                            <p>Data Analyst</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1921&q=80" alt="Bob Johnson">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">Bob Johnson</span>
+                            <p>UX Designer</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-  </main>
-  
+
+    </main>
 
 
     <footer class="page-footer">
