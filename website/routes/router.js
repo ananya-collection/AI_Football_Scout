@@ -2,7 +2,7 @@ let express = require("express");
 let router = express.Router();
 let controller = require('../controller/kmeansController.js')
 
-router.get('/getdataforai', (req, res) => {
+router.post('/getdataforai', (req, res) => {
     controller.getPrediction(req, res);
 });
 
