@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Football Scout</title>
+    <!-- MaterializeCSS used for project https://materializecss.com/about.html -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/materialize-stepper@3.1.0/dist/js/mstepper.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/materialize-stepper@3.1.0/dist/css/mstepper.min.css">
+
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+
+                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55"
+                        height="55"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/dashboardinput">Make AI Request</a></li>
+                    <li><a href="/requestshistory">Requests History</a></li>
+                    <li><a href="/userprofile">User Profile</a></li>
+                    <li><a href="/">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h3 class="center-align">AI Football Scout request form</h3>
+            <form action="youraction" method="post">
+                <ul class="stepper horizontal">
+                    <li class="step active">
+                        <div class="step-title waves-effect">Position</div>
+                        <div class="step-content">
+                            <div class="row">
+                                <h5>Select player position: </h5>
+                            </div>
+                            <div class="row">
+                                <div class="col s3 m3">
+                                    <div class="card" id="position_card">
+                                        <div class="card-image">
+                                            <img src="images/attacker.jpg" height="150" width="100">
+                                        </div>
+                                        <div class="card-content">
+                                            <span class="card-title">Attacker</span>
+                                            <p>Attackers aim to provide shots and score goals.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3 m3">
+                                    <div class="card" id="position_card">
+                                        <div class="card-image">
+                                            <img src="images/midfielder.jpg" height="150" width="100">
+
+                                        </div>
+                                        <div class="card-content">
+                                            <span class="card-title">Midfielder</span>
+                                            <p>Midfielders focus on progressive key passes. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3 m3">
+                                    <div class="card" id="position_card">
+                                        <div class="card-image">
+                                            <img src="images/defender.jpg" height="150" width="100">
+
+                                        </div>
+                                        <div class="card-content">
+                                            <span class="card-title">Defender</span>
+                                            <p>Defenders cares about interception attacks.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3 m3">
+                                    <div class="card" id="position_card">
+                                        <div class="card-image">
+                                            <img src="images/goalkeeper.jpg" height="150" width="100">
+
+                                        </div>
+                                        <div class="card-content">
+                                            <span class="card-title">Goalkeeper</span>
+                                            <p>Goalkeepers stop shots and prevent goals.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="step-actions">
+                                    <button class="waves-effect waves-dark btn next-step"
+                                        id="continue_button">CONTINUE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-title waves-effect">Age Range</div>
+                        <div class="step-content">
+                            <h5>Select player age range: </h5>
+                            <div class="step-actions">
+                                <button class="waves-effect waves-dark btn next-step"
+                                    id="continue_button">CONTINUE</button>
+                                <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-title waves-effect">Profile</div>
+                        <div class="step-content">
+                            <h5>Select target player group: </h5>
+                            <div class="step-actions">
+                                <button class="waves-effect waves-dark btn" type="submit"
+                                    id="submit_button">SUBMIT</button>
+                                <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+
+    </main>
+
+
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2024 Deakin University
+                <a class="grey-text text-lighten-4 right" href="#!">deakin.edu.au</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    var stepper = document.querySelector('.stepper');
+    var stepperInstace = new MStepper(stepper, {
+        firstActive: 0
+    });
+
+
+    positionClickAndSelect()
+
+    function positionClickAndSelect() {
+        let cards = Array.from(document.querySelectorAll('#position_card'))
+        let elements = []
+        let clickCounter = 0;
+
+        cards.forEach(card => {
+            elements = elements.concat(Array.from(card.children))
+        });
+
+        elements.forEach(element => {
+            element.addEventListener('click', function () {
+                while (clickCounter === 0) {
+                    element.parentElement.classList.add('visited')
+                    break
+                }
+                clickCounter++
+                console.log(element.parentElement.children[1].children[0].innerHTML)
+                if ((clickCounter > 1) && (element.parentElement.classList.value.includes('visited'))) {
+                    element.parentElement.classList.remove('visited')
+                    clickCounter = 0
+                }
+            });
+        });
+    };
+
+</script>
