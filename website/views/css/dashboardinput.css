@@ -1,0 +1,81 @@
+/* 
+Color paletter for project
+https://coolors.co/palette/0081a7-00afb9-fdfcdc-fed9b7-f07167
+*/
+
+#continue_button_1, #continue_button_2 {
+    background-color: #00afb9;
+}
+
+.step-title::before {
+    background-color: #00afb9;
+}
+
+#submit_button {
+    background: #f07167;
+}
+
+.card .card-content {
+    padding: 10px;
+}
+
+ul.stepper.horizontal .step .step-content .step-actions {
+    position: absolute !important;
+    bottom: auto !important;
+    left: auto !important;
+}
+
+ul.stepper.horizontal .step .step-content {
+    padding: 10px
+}
+
+ul.stepper.horizontal {
+    min-height: 574px;
+}
+
+.card .card-image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.card.visited {
+    box-shadow: 0 3px 10px 2px #0081a7;
+}
+.card.clickmissed {
+    box-shadow: 0 3px 10px 2px #f07167;
+}
+
+ul.stepper.horizontal .step.wrong .step-title.waves-effect.clickmissed::before
+{
+    background-color: #f07167;
+}
+
+ul.stepper.horizontal .step.wrong .step-title.waves-effect.visited::before
+{
+    background-color: #00afb9;
+}
+ul.stepper.horizontal .step.active .step-title.waves-effect.clickmissed::before
+{
+    background-color: #f07167;
+}
+
+ul.stepper.horizontal .step.active .step-title.waves-effect.visited::before
+{
+    background-color: #00afb9;
+}
+
+ul.stepper.horizontal .step.done .step-title::before {
+    background-color: #00afb9;
+}
+ul.stepper.horizontal .step.wrong .step-title::before {
+    background-color: #f07167;
+}
+
+ul.stepper.horizontal .step.active .step-title::before{
+    background-color: #00afb9;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
