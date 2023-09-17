@@ -1,10 +1,10 @@
 let express = require("express");
 let router = express.Router();
-let controller = require('../controller/kmeansController.js');
+let controllerKmeans = require('../controller/kmeansController.js');
 const cons = require("consolidate");
 
 router.post('/getdataforai', (req, res) => {
-    controller.getPrediction(req)
+    controllerKmeans.getPrediction(req)
     .then((response) => {
         // Access the response data here
         //console.log(response.statusCode);
@@ -18,7 +18,7 @@ router.post('/getdataforai', (req, res) => {
         players.ageGroup = ageGroup.toLowerCase();
         players.playerCategory = playerCategory.toLowerCase();
         
-        res.render('outputdashboard',{players:players})
+        res.render('dashboardoutput',{players:players})
 
     })
     .catch((error) => {
@@ -52,7 +52,7 @@ router.get('/subscription',(req,res,next) => {
 })
 
 router.get('/dashboardoutput',(req,res,next) => {
-    res.render('outputdashboard')
+    res.render('dashboardoutput')
 })
 
 router.get('/requestshistory',(req,res,next) => {
@@ -67,7 +67,7 @@ router.get('/playerStats', (req, res) => {
     const playerId = req.query.playerId; // Get the player's ID from the query parameter
     (async () => {
         try {
-            const playerStats = await controller.getPlayerData(playerId);
+            const playerStats = await controllerKmeans.getPlayerData(playerId);
             console.log("Player found is ", playerStats);
             res.render('playerprofile', { playerId: playerId, playerStats: playerStats[0] });
         } catch (error) {
