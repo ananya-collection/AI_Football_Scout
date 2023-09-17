@@ -35,7 +35,9 @@ h1,h3,h5 {
     color: #0081a7;
     font-family: 'Red Rose', cursive;
 }
-
+h4{
+    font-family:'Times New Roman', Times, serif 
+}
 .container {
     width: 90%;
     max-width: none;
@@ -64,3 +66,8 @@ ul.stepper.horizontal
  .card.visited {
     box-shadow: 0 3px 10px 2px #0081a7;
   }
+
+.custom-small {
+    width: 25em; 
+    height: auto; 
+}
