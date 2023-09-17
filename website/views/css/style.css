@@ -9,15 +9,8 @@ https://coolors.co/palette/0081a7-00afb9-fdfcdc-fed9b7-f07167
     background-color: #00afb9;
 }
 
-#continue_button {
-    background-color: #00afb9;
-}
-
 .page-footer {
     background-color: #f07167;
-}
-.step-title::before {
-    background-color: #00afb9;
 }
 
 .footer-copyright {
@@ -28,46 +21,12 @@ body {
     background-color: #fdfcdc
 }
 
-#submit_button{
-    background:#f07167;
-}
 h1,h3,h5 {
     color: #0081a7;
     font-family: 'Red Rose', cursive;
 }
-h4{
-    font-family:'Times New Roman', Times, serif 
-}
+
 .container {
     width: 90%;
     max-width: none;
-}
-.card .card-content 
-{
-    padding: 10px;
-}
-
-ul.stepper.horizontal .step .step-content .step-actions{
-    position: absolute !important;
-    bottom:auto !important;
-    left: auto !important;
-    }
-
-ul.stepper.horizontal
-{
-    min-height: 574px; 
-}
-
-.card .card-image img {
-    width: 100%;
-    object-fit: cover;
- }
-
- .card.visited {
-    box-shadow: 0 3px 10px 2px #0081a7;
-  }
-
-.custom-small {
-    width: 25em; 
-    height: auto; 
 }
