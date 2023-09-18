@@ -1,61 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>AI Football Scout</title>
+    <script src="https://kit.fontawesome.com/4147d4cbf3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- MaterializeCSS used for project https://materializecss.com/about.html -->
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Compiled and minified parallax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script> 
+    <script src="parallax.js"></script> 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <div class="container">
+    <header> 
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
 
-                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg"
-                        alt="" width="55" height="55"></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contactus">Contact Us</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/subscription">Subscription</a></li>
-                    <li><a href="/login">Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+                    <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg"
+                            alt="" width="55" height="55"></a>
+                    <!-- <a href="#" class="sidenav-trigger" data-target="mobile"><div class="icon"></div></a>  -->
+
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/subscription">Subscription</a></li>
+                        <li><a href="/userprofile">User Profile</a></li>
+                        <li><a href="/joinnow">Join Now</a></li>
+                        <li><a href="/login">Login</a></li>
+                    </ul>
+                    
+                    
+               <!-- <i class="fas fa-bars">menu</i> -->
+                   
+                    <!-- <span class="icon-name">AI Football Scout</span> -->
+               <!-- <ul class="sidenav" id="mobile">
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/userprofile">User Profile</a></li>
+                        <li><a href="/contactus">Help Center</a></li> 
+                    </ul> -->
+
+                </div>
+            </div>   
+        
+           
+        </nav>
+    </header>
 
     <main>
-        <div class="container">
-            <!--- ADD yours content here-->
-            <h1>This is home page in progress</h1>
+        <h4>Welcome Scouts! Let's Explore The World Of AI Football Scouting</h4>
+        
+        <div class="scouting-system">
+            <section class="container-section">
+                <div class="row">
+                    <div class="col s6 offset s6">
+                        <h5>Who Is A Football Scout?</h5>
+                        <p>A football scout is someone who attends matches on behalf of a club.Their purpose is to gain knowledge of the talent that is out there and report back to the football club with their findings.There are two types of scouts, a player scout and a tactical scout.</p>
+                        
+                        <h6>Player Scout:</h6>
 
+                        <p>A player scout evaluates a player's performance and works out whether they would have what it takes to play at a higher level.If the scout is sure about the player's skill they  approach the manager of the team the player is playing for explaining who they are and stating their interest in taking the player to a development centre or academy.</p>
+                        
+                        <h6>Tactical Scout</h6>
+                        
+                        <p>A tactical scout is someone who attends matches on behalf of a club but instead of assessing talent of players alone, they analyse and assess a team's tactics they play. What they look for is things such as formation, style of play, each individual player (danger men, weak links), set pieces, height, leaders etc. Their role is to provide intelligence on up coming opponents, give information to the manager which can help them to structure their teams to exploit the opposition's weaknesses.Thus, their knowledge is valuable to the club and their league position.</p>
+                    </div>
+                    <div class="col s12 l6">
+                        <ul class="tabs">
+                            <li class="tab s12">
+                                <a href="#ts" class="blue-text">Traditional Football Scouting</a>
+                            </li>
+                            <li class="tab s12">
+                                <a href="#afs" class="blue-text">AI Football Scouting</a>
+                            </li>
+                        </ul>
+                        <div col s12 id="ts">
+                            <p class="flow-text black-text">
+                                <li>Scouts attend live games and events to observe players in action.</li>
+                                <li>They visit academies and youth clubs to identify young talents</li>
+                                <li>Information generated is subjective as it relies on the perspective and judgement of an individual scout</li>
+                                <li>They present their information primarily in the form of written reports after the manual analytics operation performed on the gathered data.</li>
+                                <li>They thoroughly check the recorded videos of matches and training</li>
+                            </p>
+                        </div>
+                        <div col s12 id="afs">
+                            <p class="flow-text black-text">
+                                <li>Web application finds prospective footballers with AI</li>
+                                <li>Procuring data on different players, teams, matches,and seasons is automated and simplified 
+                                    using ML engine and web form.</li>
+                                <li>On the basis of profile and performance, rate of querying players with potential increases by leaps and bound 
+                                    with accurate information as it is devoid of human intervention.</li>
+                                <li>Time is spared in affordable cost.</li>
+                                <li>Our product encourages and opens the door for small teams to stand in same league as strong contenders, 
+                                    who can afford to make contracts with any top-level players.</li>
+                                <li>This website is tailored for scouts only irrespective of other factors.</li>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
+        <div class="features">
+            <section class="container">
+                <div class="row">
+                    <div class="col sl2 16">
+                        <img src="/images/dashboard.png" class="responsive-img" alt="" width="500" height="500">
+                        <div id="nav-mobile" class="right hide-on-med-and-down">
+                            <h5  class="text">Captivating and Interactive Dashboard</h5>
+                            <p><li>AI input form is used to add required footballer profile using AI search.</li>
+                               <li>AI output is displayed on the dashboard page with history of queries and user profile icons.</li>
+                               <li>The initial data collection job is done by the AI algorithm.</li> </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col sl2 16">
+                        <img src="/images/player profile.png" class="responsive-img" alt="" width="500" height="500">
+                        <div id="nav-mobile" class="right hide-on-med-and-down">
+                            <h5  class="text">Compact & Concise Player-Profile</h5>
+                            <p><li>While scouting, player profile is the most vital information needed.</li>
+                               <li>The complaint of scout being biased is resolved.</li>
+                               <li>Increase speed of querying prospective players based on their profiles and performance </li>
+                               <li>Without providing manual analytics operations.</li></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col sl2 16">
+                        <img src="/images/subscription.png" class="responsive-img" alt="" width="500" height="500">
+                        <div id="nav-mobile" class="right hide-on-med-and-down">
+                            <h5  class="text">Let's Subscribe & Get More</h5>
+                            <p>The premium plans we offer is not just affordable but worth it. The plan varies in terms of: 
+                            <li>Number of users that can access the plan</li>
+                            <li>Count of player profiles that can be visited</li>
+                            <li>Number of queries to service</li>
+                            <li>Type of support available</li></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Parallax for customer review -->
+        <div class="parallax"></div>
+
     </main>
-
-
+    
+        
     <footer class="page-footer">
         <div class="container">
             <div class="row">
-                <div class="col l5 s12">
+                <div class="col l5 sl2">
                     <h5 class="white-text">AI Football Scout</h5>
                     <p class="grey-text text-lighten-4">© AI Football Scout is providing services of searching
                         prospective
                         players in world top 7 leagues.
                     </p>
                 </div>
-                <div class="col l2 s12">
+                <div class="col l2 sl2">
                     <h5 class="white-text">Company</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="/about">About</a></li>
@@ -80,6 +190,13 @@
             </div>
         </div>
     </footer>
+    <!-- Compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+    <script src="/javascript/home.js"></script>
+    
+
 </body>
 
 </html>

@@ -27,5 +27,4 @@ router.get('/subscription',(req,res,next) => {
 })
 
 
-
 module.exports = router;
