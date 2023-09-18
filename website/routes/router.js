@@ -51,6 +51,10 @@ router.get('/subscription',(req,res,next) => {
     res.render('subscription')
 })
 
+router.get('/dashboardinput',(req,res,next) => {
+    res.render('dashboardinput')
+})
+
 router.get('/dashboardoutput',(req,res,next) => {
     res.render('dashboardoutput')
 })
