@@ -12,10 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified parallax -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script> 
-    <script src='jquery.js'></script>
-    <script src="parallax.js"></script> 
+    <!-- Compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
+
+        
+        
 </head>
 
 <body>
@@ -26,26 +31,15 @@
 
                     <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg"
                             alt="" width="55" height="55"></a>
-                    <!-- <a href="#" class="sidenav-trigger" data-target="mobile"><div class="icon"></div></a>  -->
-
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contactus">Contact Us</a></li>
+                        <li><a href="/blog">Blog</a></li>
                         <li><a href="/subscription">Subscription</a></li>
-                        <li><a href="/userprofile">User Profile</a></li>
-                        <li><a href="/joinnow">Join Now</a></li>
+                        <li><a href="/signup">Join Us</a></li>
                         <li><a href="/login">Login</a></li>
                     </ul>
-                    
-                    
-               <!-- <i class="fas fa-bars">menu</i> -->
-                   
-                    <!-- <span class="icon-name">AI Football Scout</span> -->
-               <!-- <ul class="sidenav" id="mobile">
-                        <li><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/userprofile">User Profile</a></li>
-                        <li><a href="/contactus">Help Center</a></li> 
-                    </ul> -->
 
                 </div>
             </div>   
@@ -55,6 +49,7 @@
     </header>
 
     <main>
+        <div class="container">
         <h4>Welcome Scouts! Let's Explore The World Of AI Football Scouting</h4>
         
         <div class="scouting-system">
@@ -81,7 +76,7 @@
                                 <a href="#afs" class="blue-text">AI Football Scouting</a>
                             </li>
                         </ul>
-                        <div col s12 id="ts">
+                        <div class="col s12 id="ts">
                             <p class="flow-text black-text">
                                 <li>Scouts attend live games and events to observe players in action.</li>
                                 <li>They visit academies and youth clubs to identify young talents</li>
@@ -90,7 +85,7 @@
                                 <li>They thoroughly check the recorded videos of matches and training</li>
                             </p>
                         </div>
-                        <div col s12 id="afs">
+                        <div class="col s12 id="afs">
                             <p class="flow-text black-text">
                                 <li>Web application finds prospective footballers with AI</li>
                                 <li>Procuring data on different players, teams, matches,and seasons is automated and simplified 
@@ -107,25 +102,27 @@
                 </div>
             </section>
         </div>
+    </div>
 
         <div class="features">
             <section class="container">
                 <div class="row">
-                    <div class="col sl2 16">
+                    <div class="col l5 s5">
                         <img src="/images/home/dashboard.png" class="responsive-img" alt="" width="500" height="500">
-                        <div id="nav-mobile" class="right hide-on-med-and-down">
+                    </div> 
+                    <div class="col l6 s6">
                             <h5  class="text">Captivating and Interactive Dashboard</h5>
                             <p><li>AI input form is used to add required footballer profile using AI search.</li>
                                <li>AI output is displayed on the dashboard page with history of queries and user profile icons.</li>
                                <li>The initial data collection job is done by the AI algorithm.</li> </p>
                         </div>
                     </div>
-                </div>
 
                 <div class="row">
-                    <div class="col sl2 16">
+                    <div class="col l5 s5">
                         <img src="/images/home/player profile.png" class="responsive-img" alt="" width="500" height="500">
-                        <div id="nav-mobile" class="right hide-on-med-and-down">
+                    </div>
+                    <div class="col l6 s6">
                             <h5  class="text">Compact & Concise Player-Profile</h5>
                             <p><li>While scouting, player profile is the most vital information needed.</li>
                                <li>The complaint of scout being biased is resolved.</li>
@@ -133,12 +130,12 @@
                                <li>Without providing manual analytics operations.</li></p>
                         </div>
                     </div>
-                </div>
 
                 <div class="row">
-                    <div class="col sl2 16">
+                    <div class="col l5 s5">
                         <img src="/images/home/subscription.png" class="responsive-img" alt="" width="500" height="500">
-                        <div id="nav-mobile" class="right hide-on-med-and-down">
+                    </div>
+                    <div class="col l6 s6">
                             <h5  class="text">Let's Subscribe & Get More</h5>
                             <p>The premium plans we offer is not just affordable but worth it. The plan varies in terms of: 
                             <li>Number of users that can access the plan</li>
@@ -146,7 +143,6 @@
                             <li>Number of queries to service</li>
                             <li>Type of support available</li></p>
                         </div>
-                    </div>
                 </div>
             </section>
         </div>
@@ -193,10 +189,7 @@
         </div>
     </footer>
 
-    <!-- Compiled and minified Jquery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+
     <script src="/js/home.js"></script>
     
 

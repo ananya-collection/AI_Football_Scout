@@ -3,26 +3,12 @@ Color paletter for project
 https://coolors.co/palette/0081a7-00afb9-fdfcdc-fed9b7-f07167
 */
 
-header{
+header {
     background: url(../images/home/cover.png);
     background-position: center;
     background-size: cover;
     min-height: 1000px;
 }
-.nav-wrapper {
-    background-color: #00afb9;
-}
-.container {
-    width: 85%;
-}
-/* .nav-wrapper i{
-    font-size: 20px;
-    position: absolute;
-    top: 80%;
-    transform: translate(-215%, 0%)
-} */
-
-    
 
 body {
     background-color: #fdfcdc;
@@ -30,56 +16,66 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+
 main {
     flex: 1 0 auto;
 }
-h4{
+
+h4 {
     text-align: center;
     line-height: normal;
-    background: linear-gradient(to left,#1a1423,#ff6b35,#ff5d8f,#ccff33,#652cbb);
+    background: linear-gradient(to left, #1a1423, #ff6b35, #ff5d8f, #ccff33, #652cbb);
     -webkit-background-clip: text;
     color: transparent;
     font-weight: 1000;
 }
-.scouting-system h5{
+
+.scouting-system h5 {
     text-align: center;
     font-weight: 700;
     color: #004e89;
 }
-.scouting-system ul{
+
+.scouting-system ul {
     background-color: #fdfcdc;
 }
-.scouting-system p{
+
+.scouting-system p {
     text-align: justify;
 }
-.scouting-system li{
+
+.scouting-system li {
     text-align: justify;
 }
-.scouting-system h6{
+
+.scouting-system h6 {
     font-weight: 500;
     color: #004e89;
 }
 
 
-.features{
+.features {
     padding-bottom: 4vw;
     padding-top: 4vw;
 }
-.features h5{
+
+.features h5 {
     font-family: 'Poppins', sans-serif;
     font-weight: 900;
     color: #004e89;
 }
-.features p{
-    font-size: 14px;
-    font-weight: 500;
-}
-.features li{
+
+.features p {
     font-size: 14px;
     font-weight: 500;
 }
 
-.parallax{
+.features li {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.parallax {
     background-image: url("/images/home/custreview.png");
     min-height: 400px;
     background-attachment: fixed;
@@ -88,20 +84,12 @@ h4{
     background-size: cover;
 }
 
-.container-section h5{
+.container-section h5 {
     font-family: 'Poppins', sans-serif;
 }
 
-.page-footer {
-    background-color: #f07167;
-}
-
-.footer-copyright {
-    background-color: #f07167;
-}
-
 @media screen and (max-width:650px) {
-    header{
+    header {
         min-height: 500px;
     }
 }
