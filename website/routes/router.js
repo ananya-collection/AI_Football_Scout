@@ -60,8 +60,19 @@ router.get('/dashboardoutput',(req,res,next) => {
 })
 
 router.get('/requestshistory',(req,res,next) => {
-    res.render('requestshistory')
+    (async() =>{
+
+        try{
+            const queries = await controllerKmeans.getQueries(req);
+            res.render('requestshistory',{queries:queries})
+        }
+        catch(error){
+            console.error("Error:", error);
+        }
+    })();
+   
 })
+
 
 router.get('/userprofile',(req,res,next) => {
     res.render('userprofile')

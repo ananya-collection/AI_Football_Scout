@@ -70,6 +70,16 @@ async function getPlayerData(req) {
     }
 }
 
+async function getQueries(req){
+    try {
+        //console.log("req is ", req);
+        const queries = await aiModel.getQueryHistory(req);
+        //console.log("controller ", playerFound);
+        return queries; 
+    } catch (error) {
+        throw error;
+    }
+}
 
 
-module.exports = { getPrediction,getPlayerData }
+module.exports = { getPrediction,getPlayerData, getQueries }

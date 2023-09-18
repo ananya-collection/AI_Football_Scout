@@ -32,16 +32,48 @@
             </div>
         </div>
     </nav>
-
     <main>
         <div class="container">
             <!--- ADD yours content here-->
-            <h1>This is user requests history page in progress</h1>
+            <h1>Query History</h1>
+            <table class="striped responsive-table">
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Date</th>
+                    <th>Position</th>
+                    <th>Age Group</th>
+                    <th>Player Category</th>
+                    <th>Top Prediction</th>
+                    <th>Second Prediction</th>
+                    <th>Third Prediction</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <% for(let i=0; i< queries.length; i++) { %>
+                <tr>
+                    <td><%= i+1 %> </td>
+                    <td><%= queries[i].requestDate %></td>
+                    <td><%= queries[i].position %></td>
+                    <td><%= queries[i].ageGroup %></td>
+                    <td><%= queries[i].playerCategory%></td>
+                    
+                        <%for(let j=0; j<3; j++) { %>
+                            
+                            <td><%= queries[i].predictions[j].name%></td>
+                            <% } %>
+                            
+                    
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+            
 
         </div>
 
     </main>
-
 
     <footer class="page-footer">
         <div class="footer-copyright">
