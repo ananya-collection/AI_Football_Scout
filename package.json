@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "jquery-parallax.js": "^1.5.0"
+  }
+}
