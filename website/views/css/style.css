@@ -2,6 +2,9 @@
 Color paletter for project
 https://coolors.co/palette/0081a7-00afb9-fdfcdc-fed9b7-f07167
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@600&display=swap');
+
 .nav-wrapper {
     background-color: #00afb9;
 }
@@ -18,10 +21,14 @@ body {
     background-color: #fdfcdc
 }
 
-h1 {
+h1,
+h3,
+h5 {
     color: #0081a7;
+    font-family: 'Red Rose', cursive;
 }
 
 .container {
-    width: 85%;
+    width: 90%;
+    max-width: none;
 }

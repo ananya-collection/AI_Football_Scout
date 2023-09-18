@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Football Scout</title>
+    <!-- MaterializeCSS used for project https://materializecss.com/about.html -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboardoutput.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+
+                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55"
+                        height="55"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/dashboardinput">Make AI Request</a></li>
+                    <li><a href="/requestshistory">Requests History</a></li>
+                    <li><a href="/userprofile">User Profile</a></li>
+                    <li><a href="/">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!--- ADD yours content here-->
+            <h1>Searching for <%= players.playerCategory %> <%= players.position %>s in <%= players.ageGroup %></h1>
+            <table class="striped responsive-table">
+                <thead>
+                <tr>
+                    <th>Ranking</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Season</th>
+                    <th>Position</th>
+                    <th>Age</th>
+                    <th>Nationality</th>
+                    <th>Shortlist</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <% for(let i=0; i< players.length; i++) { %>
+                <tr>
+                    <td><%= i+1 %> </td>
+                    <td><a href="/playerStats?playerId=<%= players[i]._id %>"><%= players[i].name %></a></td>
+                    <td><%= players[i].team_name %></td>
+                    <td><%= players[i].league_season %></td>
+                    <td><%= players[i].position %></td>
+                    <td><%= players[i].age %></td>
+                    <td><%= players[i].player_nationality %></td>
+                    <td>
+                        <form action="/addToShortlist" method="POST">
+                            <input type="hidden" name="playerId" value="<%= players[i]._id %>">
+                            <button type="submit" class="btn-floating btn-large waves-effect waves-light green" >+</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+            
+
+        </div>
+
+    </main>
+
+
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2024 Deakin University
+                <a class="grey-text text-lighten-4 right" href="#!">deakin.edu.au</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

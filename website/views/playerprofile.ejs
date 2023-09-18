@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Football Scout</title>
+    <!-- MaterializeCSS used for project https://materializecss.com/about.html -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+
+                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55"
+                        height="55"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/dashboardinput">Make AI Request</a></li>
+                    <li><a href="/requestshistory">Requests History</a></li>
+                    <li><a href="/userprofile">User Profile</a></li>
+                    <li><a href="/">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!--- ADD yours content here-->
+            <div class="row">
+                <div class="col s3">
+                    <img src="images/playerprofile/default_player.png" alt="Player Image" class="responsive-img custom-small">
+                </div>
+                <div class="col s5">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <h4><b>Name: <%= playerStats.name %></b></h4>
+                            <h4><b>Age: <%= playerStats.age %></b></h4>
+                        </div>
+                        <div class="input-field col s6">
+                            <h4><b>Position: <%= playerStats.position %></b>
+                            <h4><b>Club: <%= playerStats.team_name %></b></h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <h4><b>Nationality: <%= playerStats.player_nationality %></b></h4>       
+                        </div>
+                        <div class="input-field col s6">
+                            <h4><b>Season: <%= playerStats.league_season %></b></h4>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <% console.log("in ejs position ",playerStats.position) %>
+            <% if(playerStats.position != 'Goalkeeper') {%> 
+
+                <table class="striped responsive-table">
+                    <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>Goals</th>
+                        <th>Assists</th>
+                        <th>Appeareances</th>
+                        <th>Minutes Played</th>
+                        <th>Shots</th>
+                        <th>Total passes</th>
+                        <th>Key passes</th>
+                        <th>Dribble attempts</th>
+                        <th>Dribble Success</th>
+                        <th>Total Duels</th>
+                        <th>Duels Won</th>
+                        <th>Total Tackles</th>
+                        <th>Total Blocks</th>
+                        <th>Total Interceptions</th>
+                        <th>Fouls commited</th>
+                        <th>Yellow Cards</th>
+                        <th>Red Cards</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><%= playerStats.league_season %> </td>
+                        <td><%= playerStats.goals_total %></td>
+                        <td><%= playerStats.goals_assists %></td>
+                        <td><%= playerStats.games_appearences %></td>
+                        <td><%= playerStats.games_minutes %></td>
+                        <td><%= playerStats.shots_total %></td>
+                        <td><%= playerStats.passes_total %></td>
+                        <td><%= playerStats.passes_key %></td>
+                        <td><%= playerStats.dribbles_attempts %></td>
+                        <td><%= playerStats.dribbles_success %></td>
+                        <td><%= playerStats.duels_total %></td>
+                        <td><%= playerStats.duels_won %></td>
+                        <td><%= playerStats.tackles_total %></td>
+                        <td><%= playerStats.tackles_blocks %></td>
+                        <td><%= playerStats.tackles_interceptions %></td>
+                        <td><%= playerStats.fouls_committed %></td>
+                        <td><%= playerStats.cards_yellow %></td>
+                        <td><%= playerStats.cards_red %></td>
+
+
+
+                    </tr>
+                    </tbody>
+                </table>    
+            <% } else { %>
+
+            <table class="striped responsive-table">
+                <thead>
+                <tr>
+                    <th>Season</th>
+                    <th>Appeareances</th>
+                    <th>Minutes Played</th>
+                    <th>Goals Saved</th>
+                    <th>Goals Conceded</th>
+                    <th>Total passes</th>
+                    <th>Key passes</th>
+                    <th>Total Interceptions</th>
+                    <th>Fouls commited</th>
+                    <th>Yellow Cards</th>
+                    <th>Red Cards</th>
+                    <th>Penalties Saved</th>
+                    <th>Penalties Conceded</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><%= playerStats.league_season %> </td>
+                    <td><%= playerStats.games_appearences %></td>
+                    <td><%= playerStats.games_minutes %></td>
+                    <td><%= playerStats.goals_saves %></td>
+                    <td><%= playerStats.goals_conceded %></td>
+                    <td><%= playerStats.passes_total %></td>
+                    <td><%= playerStats.passes_key %></td>
+                    <td><%= playerStats.tackles_interceptions %></td>
+                    <td><%= playerStats.fouls_committed %></td>
+                    <td><%= playerStats.cards_yellow %></td>
+                    <td><%= playerStats.cards_red %></td>
+                    <td><%= playerStats.penalty_saved %></td>
+                    <td><%= playerStats.penalty_commited %></td>
+
+
+                </tr>
+                </tbody>
+            </table>
+
+        <% } %>
+   
+
+        </div>
+
+    </main>
+
+
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2024 Deakin University
+                <a class="grey-text text-lighten-4 right" href="#!">deakin.edu.au</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

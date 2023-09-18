@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 let client = require('../dbConnection.js');
 const kmeans = require('node-kmeans');
 let aiCollectionInput = client.db('AIFootballScout').collection('AiModelDataInput');
@@ -120,4 +121,16 @@ function insertAiRequest(request, callback) {
     aiCollectionOutput.insertOne(request, callback);
 }
 
-module.exports = { getDataForPrediction, convertDataForPrediction, getPrediction, convertPrediction, insertAiRequest }
+async function getPlayerStats(request) {
+    try {
+        //console.log(request);
+        const player = await aiCollectionInput.find({ _id: ObjectId(request) }).toArray();
+        //console.log("player is ", player);
+        return player; 
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+module.exports = { getDataForPrediction, convertDataForPrediction, getPrediction, convertPrediction, insertAiRequest,getPlayerStats }
