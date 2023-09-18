@@ -132,5 +132,15 @@ async function getPlayerStats(request) {
     }
 }
 
+async function getQueryHistory(request) {
+    try {
+        //console.log(request);
+        const query = await aiCollectionOutput.find().toArray();
+        //console.log("query is ", query);
+        return query; 
+    } catch (error) {
+        throw error;
+    }
+}
 
-module.exports = { getDataForPrediction, convertDataForPrediction, getPrediction, convertPrediction, insertAiRequest,getPlayerStats }
+module.exports = { getDataForPrediction, convertDataForPrediction, getPrediction, convertPrediction, insertAiRequest,getPlayerStats, getQueryHistory }

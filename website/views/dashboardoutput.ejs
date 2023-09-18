@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dashboardoutput.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -38,6 +39,7 @@
         <div class="container">
             <!--- ADD yours content here-->
             <h1>Searching for <%= players.playerCategory %> <%= players.position %>s in <%= players.ageGroup %></h1>
+            <a href ="/requestshistory" class="waves-effect waves-light btn"><i class="material-icons right">history</i>Query History</a>
             <table class="striped responsive-table">
                 <thead>
                 <tr>
