@@ -1,7 +1,14 @@
+require("dotenv").config()
+
 let express = require("express");
 let router = express.Router();
 let controllerKmeans = require('../controller/kmeansController.js');
 const cons = require("consolidate");
+
+
+
+const stripe = require('stripe')(process.env.Secret_Key)
+
 
 router.post('/getdataforai', (req, res) => {
     controllerKmeans.getPrediction(req)
@@ -81,7 +88,6 @@ router.get('/requestshistory',(req,res,next) => {
    
 })
 
-
 router.get('/userprofile',(req,res,next) => {
     res.render('userprofile')
 })
@@ -100,5 +106,51 @@ router.get('/playerStats', (req, res) => {
     
    
 });
+
+const subPrices = new Map([
+    [1, { priceInCents: 1999, name: "Tier 1 Sub" }],
+    [2, { priceInCents: 3999, name: "Tier 2 Sub" }],
+    [3, { priceInCents: 5999, name: "Tier 3 Sub" }]
+  ])
+  
+router.post("/create-checkout-session", async (req, res) => {
+try {
+    const session = await stripe.checkout.sessions.create({
+    payment_method_types: ["card"],
+    mode: "payment",
+    line_items: req.body.items.map(item => {
+        const subPrice = subPrices.get(item.id)
+        return {
+        price_data: {
+            currency: "aud",
+            product_data: {
+            name: subPrice.name,
+            },
+            unit_amount: subPrice.priceInCents,
+        },
+        quantity: item.quantity,
+        }
+    }),
+    success_url: `${process.env.CLIENT_URL}/paymentsuccess`,
+    cancel_url: `${process.env.CLIENT_URL}/paymentfailure`,
+    })
+    res.json({ url: session.url })
+} catch (e) {
+    res.status(500).json({ error: e.message })
+}
+})
+
+
+router.get('/paymentsuccess',(req,res,next) => {
+    res.render('paymentsuccess')
+})
+
+
+router.get('/paymentfailure',(req,res,next) => {
+    res.render('paymentfailure')
+})
+
+
+
 
 module.exports = router;
