@@ -36,14 +36,26 @@
         </div>
     </nav>
 
-    <main>
-        <div class="container">
-            <!--- ADD yours content here-->
-            <h1>This is Contact Us page in progress</h1>
-            
-        </div>
-
-    </main>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Have questions or feedback? Reach out to us using the form below:</p>
+        
+        <form id="contactForm" method="post">
+            <div class="input-field">
+                <input type="text" id="name" name="name" required>
+                <label for="name">Your Name</label>
+            </div>
+            <div class="input-field">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Your Email</label>
+            </div>
+            <div class="input-field">
+                <textarea id="description" class="materialize-textarea" name="message" required></textarea>
+                <label for="description">Description</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Submit</button>
+        </form>
+    </div>
 
 
     <footer class="page-footer">
@@ -81,6 +93,35 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const contactForm = document.getElementById('contactForm');
+    const responseMessage = document.getElementById('responseMessage');
+
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        fetch('/api/contact', {
+            method: 'POST',
+            body: JSON.stringify(Object.fromEntries(formData)),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                responseMessage.innerHTML = data.message;
+                contactForm.reset();
+            })
+            .catch((error) => {
+                console.error(error);
+                responseMessage.innerHTML = 'An error occurred. Please try again later.';
+            });
+    });
+});
+    </script>
 </body>
 
 </html>
