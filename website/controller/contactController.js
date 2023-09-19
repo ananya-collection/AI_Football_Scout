@@ -1,3 +1,5 @@
+let mongoClient = require('../dbConnection.js');
+
 const ContactController = {
     // Define the saveContactUs function
     saveContactUs: async (req, res) => {
