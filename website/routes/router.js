@@ -88,11 +88,6 @@ router.get('/requestshistory',(req,res,next) => {
    
 })
 
-router.get('/payment',(req,res,next)=>{
-
-    res.render('payment')
-})
-
 router.get('/userprofile',(req,res,next) => {
     res.render('userprofile')
 })
