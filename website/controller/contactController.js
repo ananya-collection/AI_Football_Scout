@@ -7,7 +7,7 @@ const ContactController = {
             const { name, email, message } = req.body;
 
             // Get the MongoDB collection where you want to store contact data
-            const contactsCollection = mongoClient.db("AIFootballScout").collection("contacts");
+            const contactsCollection = mongoClient.db("AIFootballScout").collection("ContactUsRequests");
     
             // Create the contact document
             const contactDocument = {
