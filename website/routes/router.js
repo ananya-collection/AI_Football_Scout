@@ -4,7 +4,7 @@ let express = require("express");
 let router = express.Router();
 let controllerKmeans = require('../controller/kmeansController.js');
 const cons = require("consolidate");
-
+const contactController = require('../controller/contactController');
 
 
 const stripe = require('stripe')(process.env.Secret_Key)
@@ -35,6 +35,11 @@ router.post('/getdataforai', (req, res) => {
         console.error(error.message);
     });
     
+});
+
+// Define a route for saving contact information
+router.post('/api/contact', (req,res,next) => {
+    contactController.saveContactUs(req, res)
 });
 
 
