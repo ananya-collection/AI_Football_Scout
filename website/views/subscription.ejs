@@ -22,8 +22,8 @@
         <div class="nav-wrapper">
             <div class="container">
 
-                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg"
-                        alt="" width="55" height="55"></a>
+                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55"
+                        height="55"></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
@@ -37,13 +37,28 @@
         </div>
     </nav>
 
-    <main>
+    <h2>AI Football Scout Newsletter</h2>
+
+    <form>
         <div class="container">
-            <!--- ADD yours content here-->
-            <h1>This is Subscription page in progress</h1>
-            <%- include('partials/payment') %>
+            <h3>Subscribe to our AI Football Scout</h3>
+            <p>Subscribe to our page for the latest news and offers.</p>
         </div>
 
+        <div class="container" style="background-color:rgb(64, 63, 57)">
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="text" placeholder="Email address" name="mail" required>
+            <input type="number" placeholder="Mobile Number" name="Mobile Number" required>
+            <label>
+                <input type="checkbox" checked="checked" name="subscribe">
+            </label>
+        </div>
+
+        <div class="container">
+            <input type="submit" value="Subscribe">
+        </div>
+    </form>
+    </section>
     </main>
 
 
