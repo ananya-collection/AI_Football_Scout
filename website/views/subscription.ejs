@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>AI Football Scout</title>
     <!-- MaterializeCSS used for project https://materializecss.com/about.html -->
     <!-- Compiled and minified CSS -->
@@ -17,13 +16,12 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
     <nav>
         <div class="nav-wrapper">
             <div class="container">
 
-                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55"
-                        height="55"></a>
+                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="30"
+                        height="30"></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
@@ -36,67 +34,101 @@
             </div>
         </div>
     </nav>
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    <h2>AI Football Scout Newsletter</h2>
+.columns {
+  float: left;
+  width: 33.3%;
+  padding: 8px;
+}
 
-    <form>
-        <div class="container">
-            <h3>Subscribe to our AI Football Scout</h3>
-            <p>Subscribe to our page for the latest news and offers.</p>
-        </div>
+.price {
+  list-style-type: none;
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
 
-        <div class="container" style="background-color:rgb(64, 63, 57)">
-            <input type="text" placeholder="Name" name="name" required>
-            <input type="text" placeholder="Email address" name="mail" required>
-            <input type="number" placeholder="Mobile Number" name="Mobile Number" required>
-            <label>
-                <input type="checkbox" checked="checked" name="subscribe">
-            </label>
-        </div>
+.price:hover {
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
 
-        <div class="container">
-            <input type="submit" value="Subscribe">
-        </div>
-    </form>
-    </section>
-    </main>
+.price .header {
+  background-color: #111;
+  color: white;
+  font-size: 25px;
+}
 
+.price li {
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+}
 
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l5 s12">
-                    <h5 class="white-text">AI Football Scout</h5>
-                    <p class="grey-text text-lighten-4">© AI Football Scout is providing services of searching
-                        prospective
-                        players in world top 7 leagues.
-                    </p>
-                </div>
-                <div class="col l2 s12">
-                    <h5 class="white-text">Company</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="/about">About</a></li>
-                        <li><a class="grey-text text-lighten-3" href="/blog">Blog</a></li>
-                        <li><a class="grey-text text-lighten-3" href="/contactus">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="col l2 offset-l2 s12">
-                    <h5 class="white-text">Social Media</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Youtube</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2024 Deakin University
-                <a class="grey-text text-lighten-4 right" href="#!">deakin.edu.au</a>
-            </div>
-        </div>
-    </footer>
+.price .grey {
+  background-color: #eee;
+  font-size: 20px;
+}
+
+.button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+  .columns {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center">Subscription Plans</h2>
+<p style="text-align:center">Select the subscription plan based on your requirement.</p>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header">Basic</li>
+    <li class="grey">$ 9.99 / year</li>
+    <li>1000 Queries</li>
+    <li>Response in less than 72 Hours</li>
+    <li>Email Support</li>
+        <li class="grey"><a href="#" class="button">Subscribe</a></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header" style="background-color:#04AA6D">Pro</li>
+    <li class="grey">$ 19.99 / year</li>
+    <li>2000 Queries</li>
+    <li>Response in less than 48 Hours</li>
+    <li>Email and Telephonic Support</li>
+    <li class="grey"><a href="#" class="button">Sign Up</a></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header">Premium</li>
+    <li class="grey">$ 49.99 / year</li>
+    <li>5000 Queries</li>
+    <li>Response in less than 24 Hours</li>
+    <li>Email and Telephonic Support</li>
+    <li class="grey"><a href="#" class="button">Sign Up</a></li>
+  </ul>
+</div>
+
 </body>
-
 </html>
