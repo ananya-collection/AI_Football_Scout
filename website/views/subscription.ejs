@@ -3,132 +3,117 @@
 
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Football Scout</title>
-    <!-- MaterializeCSS used for project https://materializecss.com/about.html -->
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./js/payment.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
+  <title>AI Football Scout</title>
+  <!-- MaterializeCSS used for project https://materializecss.com/about.html -->
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./js/payment.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/subscription.css">
 </head>
 
-    <nav>
-        <div class="nav-wrapper">
-            <div class="container">
-
-                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="30"
-                        height="30"></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contactus">Contact Us</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/subscription">Subscription</a></li>
-                    <li><a href="/signup">Join Us</a></li>
-                    <li><a href="/login">Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-.columns {
-  float: left;
-  width: 33.3%;
-  padding: 8px;
-}
-
-.price {
-  list-style-type: none;
-  border: 1px solid #eee;
-  margin: 0;
-  padding: 0;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.price:hover {
-  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
-}
-
-.price .header {
-  background-color: #111;
-  color: white;
-  font-size: 25px;
-}
-
-.price li {
-  border-bottom: 1px solid #eee;
-  padding: 20px;
-  text-align: center;
-}
-
-.price .grey {
-  background-color: #eee;
-  font-size: 20px;
-}
-
-.button {
-  background-color: #04AA6D;
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-@media only screen and (max-width: 600px) {
-  .columns {
-    width: 100%;
-  }
-}
-</style>
-</head>
 <body>
 
-<h2 style="text-align:center">Subscription Plans</h2>
-<p style="text-align:center">Select the subscription plan based on your requirement.</p>
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container">
 
-<div class="columns">
-  <ul class="price">
-    <li class="header">Basic</li>
-    <li class="grey">$ 9.99 / year</li>
-    <li>1000 Queries</li>
-    <li>Response in less than 72 Hours</li>
-    <li>Email Support</li>
-        <li class="grey"><a href="#" class="button">Subscribe</a></li>
-  </ul>
-</div>
+        <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55" height="5"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contactus">Contact Us</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/subscription">Subscription</a></li>
+          <li><a href="/signup">Join Us</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<div class="columns">
-  <ul class="price">
-    <li class="header" style="background-color:#04AA6D">Pro</li>
-    <li class="grey">$ 19.99 / year</li>
-    <li>2000 Queries</li>
-    <li>Response in less than 48 Hours</li>
-    <li>Email and Telephonic Support</li>
-    <li class="grey"><a href="#" class="button">Sign Up</a></li>
-  </ul>
-</div>
+  <div class="container">
+    <h2 style="text-align:center">Subscription Plans</h2>
+    <p style="text-align:center">Select the subscription plan based on your requirement.</p>
 
-<div class="columns">
-  <ul class="price">
-    <li class="header">Premium</li>
-    <li class="grey">$ 49.99 / year</li>
-    <li>5000 Queries</li>
-    <li>Response in less than 24 Hours</li>
-    <li>Email and Telephonic Support</li>
-    <li class="grey"><a href="#" class="button">Sign Up</a></li>
-  </ul>
-</div>
+    <div class="row">
+      <div class="columns">
+        <ul class="price">
+          <li class="header">Basic</li>
+          <li class="grey">$ 9.99 / year</li>
+          <li>1000 Queries</li>
+          <li>Response in less than 72 Hours</li>
+          <li>Email Support</li>
+          <li class="grey"><%- include('partials/payment') %></li>
+        </ul>
+      </div>
 
+      <div class="columns">
+        <ul class="price">
+          <li class="header" style="background-color:#04AA6D">Pro</li>
+          <li class="grey">$ 19.99 / year</li>
+          <li>2000 Queries</li>
+          <li>Response in less than 48 Hours</li>
+          <li>Email and Telephonic Support</li>
+          <li class="grey"><%- include('partials/payment') %></li>
+        </ul>
+      </div>
+
+      <div class="columns">
+        <ul class="price">
+          <li class="header">Premium</li>
+          <li class="grey">$ 49.99 / year</li>
+          <li>5000 Queries</li>
+          <li>Response in less than 24 Hours</li>
+          <li>Email and Telephonic Support</li>
+         <li class="grey"><%- include('partials/payment') %></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l5 sl2">
+          <h5 class="white-text">AI Football Scout</h5>
+          <p class="grey-text text-lighten-4">© AI Football Scout is providing services of searching
+            prospective
+            players in world top 7 leagues.
+          </p>
+        </div>
+        <div class="col l2 sl2">
+          <h5 class="white-text">Company</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="/about">About</a></li>
+            <li><a class="grey-text text-lighten-3" href="/blog">Blog</a></li>
+            <li><a class="grey-text text-lighten-3" href="/contactus">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col l2 offset-l2 s12">
+          <h5 class="white-text">Social Media</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Youtube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2024 Deakin University
+        <a class="grey-text text-lighten-4 right" href="#!">deakin.edu.au</a>
+      </div>
+    </div>
+  </footer>
 </body>
+
 </html>
