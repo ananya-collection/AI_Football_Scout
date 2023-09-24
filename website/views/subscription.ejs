@@ -3,100 +3,117 @@
 
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Football Scout</title>
-    <!-- MaterializeCSS used for project https://materializecss.com/about.html -->
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>AI Football Scout</title>
+  <!-- MaterializeCSS used for project https://materializecss.com/about.html -->
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./js/payment.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./js/payment.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/subscription.css">
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <div class="container">
 
-                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55"
-                        height="55"></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contactus">Contact Us</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/subscription">Subscription</a></li>
-                    <li><a href="/signup">Join Us</a></li>
-                    <li><a href="/login">Login</a></li>
-                </ul>
-            </div>
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container">
+
+        <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55" height="5"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contactus">Contact Us</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/subscription">Subscription</a></li>
+          <li><a href="/signup">Join Us</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 style="text-align:center">Subscription Plans</h2>
+    <p style="text-align:center">Select the subscription plan based on your requirement.</p>
+
+    <div class="row">
+      <div class="columns">
+        <ul class="price">
+          <li class="header">Basic</li>
+          <li class="grey">$ 9.99 / year</li>
+          <li>1000 Queries</li>
+          <li>Response in less than 72 Hours</li>
+          <li>Email Support</li>
+          <li class="grey"><%- include('partials/payment') %></li>
+        </ul>
+      </div>
+
+      <div class="columns">
+        <ul class="price">
+          <li class="header" style="background-color:#04AA6D">Pro</li>
+          <li class="grey">$ 19.99 / year</li>
+          <li>2000 Queries</li>
+          <li>Response in less than 48 Hours</li>
+          <li>Email and Telephonic Support</li>
+          <li class="grey"><%- include('partials/payment') %></li>
+        </ul>
+      </div>
+
+      <div class="columns">
+        <ul class="price">
+          <li class="header">Premium</li>
+          <li class="grey">$ 49.99 / year</li>
+          <li>5000 Queries</li>
+          <li>Response in less than 24 Hours</li>
+          <li>Email and Telephonic Support</li>
+         <li class="grey"><%- include('partials/payment') %></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l5 sl2">
+          <h5 class="white-text">AI Football Scout</h5>
+          <p class="grey-text text-lighten-4">© AI Football Scout is providing services of searching
+            prospective
+            players in world top 7 leagues.
+          </p>
         </div>
-    </nav>
-
-    <h2>AI Football Scout Newsletter</h2>
-
-    <form>
-        <div class="container">
-            <h3>Subscribe to our AI Football Scout</h3>
-            <p>Subscribe to our page for the latest news and offers.</p>
+        <div class="col l2 sl2">
+          <h5 class="white-text">Company</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="/about">About</a></li>
+            <li><a class="grey-text text-lighten-3" href="/blog">Blog</a></li>
+            <li><a class="grey-text text-lighten-3" href="/contactus">Contact Us</a></li>
+          </ul>
         </div>
-
-        <div class="container" style="background-color:rgb(64, 63, 57)">
-            <input type="text" placeholder="Name" name="name" required>
-            <input type="text" placeholder="Email address" name="mail" required>
-            <input type="number" placeholder="Mobile Number" name="Mobile Number" required>
-            <label>
-                <input type="checkbox" checked="checked" name="subscribe">
-            </label>
+        <div class="col l2 offset-l2 s12">
+          <h5 class="white-text">Social Media</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Youtube</a></li>
+          </ul>
         </div>
-
-        <div class="container">
-            <input type="submit" value="Subscribe">
-        </div>
-    </form>
-    </section>
-    </main>
-
-
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l5 s12">
-                    <h5 class="white-text">AI Football Scout</h5>
-                    <p class="grey-text text-lighten-4">© AI Football Scout is providing services of searching
-                        prospective
-                        players in world top 7 leagues.
-                    </p>
-                </div>
-                <div class="col l2 s12">
-                    <h5 class="white-text">Company</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="/about">About</a></li>
-                        <li><a class="grey-text text-lighten-3" href="/blog">Blog</a></li>
-                        <li><a class="grey-text text-lighten-3" href="/contactus">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="col l2 offset-l2 s12">
-                    <h5 class="white-text">Social Media</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Youtube</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2024 Deakin University
-                <a class="grey-text text-lighten-4 right" href="#!">deakin.edu.au</a>
-            </div>
-        </div>
-    </footer>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2024 Deakin University
+        <a class="grey-text text-lighten-4 right" href="#!">deakin.edu.au</a>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
