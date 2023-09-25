@@ -1,6 +1,7 @@
 let express = require("express");
 let router = express.Router();
 let controllerKmeans = require('../controller/kmeansController.js');
+let controllerLogin = require ('../controller/loginController.js');
 const cons = require("consolidate");
 
 router.post('/getdataforai', (req, res) => {
@@ -52,8 +53,13 @@ router.get('/subscription',(req,res,next) => {
 })
 
 router.get('/login',(req,res,next) => {
-    res.render('login')
-})
+    res.render('login');
+});
+   
+router.post('/login'),(req,res)=>{
+    console.log('hi')
+    controllerLogin.login_post(req,res,next);
+}
 
 router.get('/signup',(req,res,next) => {
     res.render('signup')

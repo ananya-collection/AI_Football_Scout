@@ -1,0 +1,39 @@
+/* 
+Color paletter for project
+https://coolors.co/palette/0081a7-00afb9-fdfcdc-fed9b7-f07167
+*/
+
+body {
+    background-color: #fdfcdc;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+
+.main-center {     
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 40px 40px;
+    position:absolute;
+    left:0;
+    right:0;
+    top: 50%;
+    transform: translateY(-50%);
+     border: 1px solid #000000; 
+ } 
+ .main-center h4{
+    text-align: center;
+    color: #004e89;   
+ }
+input,
+textarea,
+select,
+button {
+    width: 20px;
+    padding: 5px 50px 5px 15px;
+    margin: 10px 120px;
+    box-sizing: border-box;
+} 
