@@ -14,7 +14,6 @@ async function getDataForPrediction(request, callback) {
 }
 
 function convertDataForPrediction(request) {
-
     // convering mongoDB output into vectors
     let vectors = new Array();
     for (let i = 0; i < request.length; i++) {
@@ -92,23 +91,55 @@ function convertPrediction(request, playerCategory) {
     }
 
     // get class rating summing each KPI rating and label it to frontent variable
+    /*    rating_final = []
+      for (u = 0; u < 5; u++) {
+          rating_final.push(rating['cluster' + u])
+      }
+  
+      rating.sort(function (a, b) {
+          return a.name > b.name;
+      });
+  
+      rating_final.sort()
+        console.log(rating)
+        console.log(rating_final)
+        for (u = 0; u < 5; u++) {
+            if (rating['cluster' + u] === rating_final[0])
+                rating['cluster' + u] = 'lowAppereances'
+            else if (rating['cluster' + u] === rating_final[1])
+                rating['cluster' + u] = 'belowAverage'
+            else if (rating['cluster' + u] === rating_final[2])
+                rating['cluster' + u] = 'average'
+            else if (rating['cluster' + u] === rating_final[3])
+                rating['cluster' + u] = 'prospective'
+            else if (rating['cluster' + u] === rating_final[4])
+                rating['cluster' + u] = 'top'
+        }
+        */
+
     rating_final = []
     for (u = 0; u < 5; u++) {
-        rating_final.push(rating['cluster' + u])
+        rating_final.push({ cluster: u, value: rating['cluster' + u], clusterId: 'cluster' + u })
     }
-    rating_final.sort()
-    for (u = 0; u < 5; u++) {
-        if (rating['cluster' + u] === rating_final[0])
-            rating['cluster' + u] = 'lowAppereances'
-        else if (rating['cluster' + u] === rating_final[1])
-            rating['cluster' + u] = 'belowAverage'
-        else if (rating['cluster' + u] === rating_final[2])
-            rating['cluster' + u] = 'average'
-        else if (rating['cluster' + u] === rating_final[3])
-            rating['cluster' + u] = 'prospective'
-        else if (rating['cluster' + u] === rating_final[4])
-            rating['cluster' + u] = 'top'
-    }    
+
+    rating_final.sort(function (a, b) {
+        return a.value - b.value;
+    });
+
+    rating_final[0]['description'] = 'lowAppereances'
+    rating_final[1]['description'] = 'belowAverage'
+    rating_final[2]['description'] = 'average'
+    rating_final[3]['description'] = 'prospective'
+    rating_final[4]['description'] = 'top'
+
+    for (w = 0; w < 5; w++) {
+        for (v = 0; v < 5; v++) {
+            if (rating_final[w].clusterId === rating_final[v].clusterId)
+                {rating[rating_final[w].clusterId] = rating_final[v].description
+                }
+        }
+    }
+
     var clustered = {}
     for (var i = 0; i < 5; i++) {
         clustered[rating['cluster' + i]] = request[i].clusterInd;
@@ -121,12 +152,25 @@ function insertAiRequest(request, callback) {
     aiCollectionOutput.insertOne(request, callback);
 }
 
+function deleteRecords(request, callback) {
+    aiCollectionOutput.deleteMany(request, callback);
+}
+
+async function findRecords(request) {
+    try {
+        let recordsToDelete = await aiCollectionOutput.find({}).sort({ requestId: -1 }).limit(parseInt(request)).toArray();
+        return recordsToDelete
+    } catch (error) {
+        throw error;
+    }
+}
+
 async function getPlayerStats(request) {
     try {
         //console.log(request);
         const player = await aiCollectionInput.find({ _id: ObjectId(request) }).toArray();
         //console.log("player is ", player);
-        return player; 
+        return player;
     } catch (error) {
         throw error;
     }
@@ -137,10 +181,14 @@ async function getQueryHistory(request) {
         //console.log(request);
         const query = await aiCollectionOutput.find().toArray();
         //console.log("query is ", query);
-        return query; 
+        return query;
     } catch (error) {
         throw error;
     }
 }
 
-module.exports = { getDataForPrediction, convertDataForPrediction, getPrediction, convertPrediction, insertAiRequest,getPlayerStats, getQueryHistory }
+module.exports = {
+    getDataForPrediction, convertDataForPrediction, getPrediction,
+    convertPrediction, insertAiRequest, getPlayerStats, getQueryHistory,
+    deleteRecords, findRecords
+}
