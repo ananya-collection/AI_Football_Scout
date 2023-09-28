@@ -33,8 +33,14 @@ router.post('/getdataforai', (req, res) => {
         console.error(error.statusCode);
         console.error(error.data);
         console.error(error.message);
+        res.json(error);
     });
     
+});
+
+// Define a route for saving contact information
+router.delete('/api/deleteaftertest', (req,res,next) => {
+    controllerKmeans.deleteRecord(req, res)
 });
 
 // Define a route for saving contact information

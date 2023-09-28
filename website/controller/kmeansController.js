@@ -13,6 +13,7 @@ async function getPrediction(req) {
         let ageGroup = req.body.ageGroup;
         let playerCategory = req.body.playerCategory;
         let today = new Date().toLocaleDateString();
+        let requestId = Math.round(new Date() / 1000);
 
         if (
             availablePositions.includes(position) &&
@@ -29,13 +30,13 @@ async function getPrediction(req) {
                         let predictions = aiModel.convertPrediction(result, position)[playerCategory];
 
                         output = {
+                            requestId: requestId,
                             requestDate: today,
                             position: position,
                             ageGroup: ageGroup,
                             playerCategory: playerCategory,
                             predictions: [],
                         };
-
                         for (var i = 0; i < predictions.length; i++) {
                             output.predictions.push(dbRawData[predictions[i]]);
                         }
@@ -53,33 +54,52 @@ async function getPrediction(req) {
                 reject({ statusCode: 500, data: error, message: 'error' });
             }
         } else {
-            output = { requestDate: today, position: position, ageGroup: ageGroup, playerCategory: playerCategory, predictions: [] };
+            output = { requestId: requestId, requestDate: today, position: position, ageGroup: ageGroup, playerCategory: playerCategory, predictions: [] };
             reject({ statusCode: 400, data: output, message: 'bad request' });
         }
     });
 }
+
+
+async function deleteRecord(req,res) {
+    try {
+        let recordsToDelete = await aiModel.findRecords(req.body.successTests);
+        let listToDelete = []
+        for (var i=0; i < recordsToDelete.length; i++)
+            {listToDelete.push(recordsToDelete[i].requestId)}
+
+        let deleteReq = { 'requestId': { '$in':  listToDelete} };
+        aiModel.deleteRecords(deleteReq, (err, result) => {
+            if (!err) {
+                res.json({ statusCode: 202, data: result, message: 'success' });
+            }
+        });
+    } catch (error) {
+        throw error;
+    }
+};
 
 async function getPlayerData(req) {
     try {
         //console.log("req is ", req);
         const playerFound = await aiModel.getPlayerStats(req);
         //console.log("controller ", playerFound);
-        return playerFound; 
+        return playerFound;
     } catch (error) {
         throw error;
     }
 }
 
-async function getQueries(req){
+async function getQueries(req) {
     try {
         //console.log("req is ", req);
         const queries = await aiModel.getQueryHistory(req);
         //console.log("controller ", playerFound);
-        return queries; 
+        return queries;
     } catch (error) {
         throw error;
     }
 }
 
 
-module.exports = { getPrediction,getPlayerData, getQueries }
+module.exports = { getPrediction, getPlayerData, getQueries, deleteRecord }
