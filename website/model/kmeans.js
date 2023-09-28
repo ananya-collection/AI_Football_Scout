@@ -91,32 +91,6 @@ function convertPrediction(request, playerCategory) {
     }
 
     // get class rating summing each KPI rating and label it to frontent variable
-    /*    rating_final = []
-      for (u = 0; u < 5; u++) {
-          rating_final.push(rating['cluster' + u])
-      }
-  
-      rating.sort(function (a, b) {
-          return a.name > b.name;
-      });
-  
-      rating_final.sort()
-        console.log(rating)
-        console.log(rating_final)
-        for (u = 0; u < 5; u++) {
-            if (rating['cluster' + u] === rating_final[0])
-                rating['cluster' + u] = 'lowAppereances'
-            else if (rating['cluster' + u] === rating_final[1])
-                rating['cluster' + u] = 'belowAverage'
-            else if (rating['cluster' + u] === rating_final[2])
-                rating['cluster' + u] = 'average'
-            else if (rating['cluster' + u] === rating_final[3])
-                rating['cluster' + u] = 'prospective'
-            else if (rating['cluster' + u] === rating_final[4])
-                rating['cluster' + u] = 'top'
-        }
-        */
-
     rating_final = []
     for (u = 0; u < 5; u++) {
         rating_final.push({ cluster: u, value: rating['cluster' + u], clusterId: 'cluster' + u })
@@ -157,6 +131,7 @@ function deleteRecords(request, callback) {
 }
 
 async function findRecords(request) {
+    // find record which was created by unit tests
     try {
         let recordsToDelete = await aiCollectionOutput.find({}).sort({ requestId: -1 }).limit(parseInt(request)).toArray();
         return recordsToDelete
