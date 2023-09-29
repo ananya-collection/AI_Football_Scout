@@ -22,6 +22,7 @@ for (j = 0; j < availablePositions.length; j++) {
 };
 let successTests = 0;
 
+// unit testing all possible inputs
 testingValues.forEach(function (value) {
     describe(`Testing input: {position: '${value.position}', ageGroup: '${value.ageGroup}', playerCategory: '${value.playerCategory}'}`, function () {
         it('test POST request to AI algorithm and get page in responce', function (done) {
@@ -46,6 +47,7 @@ testingValues.forEach(function (value) {
     });
 });
 
+// deleting testing inputs
 describe(`DELETE values after test success POST inputs`, function () {
     it('DELETE after test POST status code 202', function (done) {
         request.delete({ url: url_delete, form: { successTests: successTests } }, function (error, response, anotherThing) {
