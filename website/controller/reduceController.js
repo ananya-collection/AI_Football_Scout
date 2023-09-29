@@ -4,8 +4,14 @@ let reduceCollection = client.db('AIFootballScout').collection('Users');
 
 async function updateRecord(req, res) {
     try {
-        userName = req.body.userName
-        let result = await reduceCollection.updateOne({ user: 'bohdan'},{ $inc: { "queries": -1 } })
+        let action = parseInt(req.body.action);
+        let cookieList = req.headers.cookie.split('; ');
+        cookieList.forEach(function (value) {
+            if (value.includes('username='))
+                userName = value.split('username=')[1];
+
+        })
+        let result = await reduceCollection.updateOne({ user: userName}, { $inc: { "queries": action } })
         return result;
     } catch (error) {
         throw error;
