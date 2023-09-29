@@ -5,7 +5,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const cookieParser = require('cookie-parser')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +20,10 @@ let router = require('./routes/router.js');
 
 app.use('/api', router)
 app.use('/',router)
-app.use(cookieParser())
+
+
+
+// Define routes and middleware here
 
 app.listen(port, ()=>{
     //upon server start this logic will be fired

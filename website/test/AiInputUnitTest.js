@@ -25,7 +25,7 @@ let successTests = 0;
 testingValues.forEach(function (value) {
     describe(`Testing input: {position: '${value.position}', ageGroup: '${value.ageGroup}', playerCategory: '${value.playerCategory}'}`, function () {
         it('test POST request to AI algorithm and get page in responce', function (done) {
-            request.post({ url: url, form: value, headers: {'cookie': 'type=unittests; username=bohdan'}}, function (error, response, anotherThing) {
+            request.post({ url: url, form: value }, function (error, response, anotherThing) {
                 let validation;
                 try {
                     responseObj = JSON.parse(anotherThing);
@@ -41,7 +41,6 @@ testingValues.forEach(function (value) {
                 expect(validation).to.equal(true);
                 done();
             });
-            this.timeout(4000)
         });
     });
 });
