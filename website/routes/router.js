@@ -36,8 +36,7 @@ router.post('/getdataforai', (req, res) => {
                 players.playerCategory = playerCategory.toLowerCase();
 
                 res.render('dashboardoutput', { players: players });
-                // !! userName hardcoded
-                request.put({ url: reduceUrl, form: { userName: userName } });
+                request.put({ url: reduceUrl, form: { action: -1 }, headers: {'cookie': `type=internal; username=${userName}`} });
 
             })
             .catch((error) => {
@@ -52,21 +51,35 @@ router.post('/getdataforai', (req, res) => {
 
 // Define a route for reducing user queries by 1 after success AI request
 router.put('/api/queryreduce', (req, res, next) => {
-    (async () => {
-        try {
-            let result = await controllerReduce.updateRecord(req, res)
-            res.status(203).json({ statusCode: 203, data: result, message: 'success' });
-        }
-        catch (error) {
-            res.status(500).json({ statusCode: 500, data: error, message: 'error' });
-            throw error;
-        }
-    })();
+    let userName = authController.userAuthorised(req)
+
+    if (typeof userName === "undefined") {
+        res.json({ statusCode: 401, message: 'no auth data in header' })
+    }
+    else {
+        (async () => {
+            try {
+                let result = await controllerReduce.updateRecord(req, res)
+                res.status(202).json({ statusCode: 202, data: result, message: 'success' });
+            }
+            catch (error) {
+                res.status(500).json({ statusCode: 500, data: error, message: 'error' });
+                throw error;
+            }
+        })();
+    }
 });
 
 // Define a route for deleting records after testing
 router.delete('/api/deleteaftertest', (req, res, next) => {
-    controllerKmeans.deleteRecord(req, res)
+    let userName = authController.userAuthorised(req)
+
+    if (typeof userName === "undefined") {
+        res.json({ statusCode: 401, message: 'no auth data in header' })
+    }
+    else {
+        controllerKmeans.deleteRecord(req, res)
+    }
 });
 
 // Define a route for saving contact information
@@ -174,7 +187,7 @@ router.get('/playerStats', (req, res) => {
         (async () => {
             try {
                 const playerStats = await controllerKmeans.getPlayerData(playerId);
-            //    console.log("Player found is ", playerStats);
+                //    console.log("Player found is ", playerStats);
                 res.render('playerprofile', { playerId: playerId, playerStats: playerStats[0] });
             } catch (error) {
                 console.error("Error:", error);
