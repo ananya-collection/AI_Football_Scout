@@ -7,6 +7,7 @@ let controllerKmeans = require('../controller/kmeansController.js');
 let controllerReduce = require('../controller/reduceController.js');
 const cons = require("consolidate");
 const contactController = require('../controller/contactController');
+const ChangePasswordController = require('../controller/changePasswordController');
 const authController = require('../controller/authController.js')
 const reduceUrl = 'http://localhost:3000/api/queryreduce';
 
@@ -166,6 +167,28 @@ router.get('/userprofile', (req, res, next) => {
     }
     else {
         res.render('userprofile')
+    }
+})
+
+router.get('/changepassword', (req, res, next) => {
+    let userName = authController.userAuthorised(req)
+
+    if (typeof userName === "undefined") {
+        res.json({ statusCode: 401, message: 'no auth data in header' })
+    }
+    else {
+        res.render('changepassword')
+    }
+})
+
+router.post('/api/change-password', (req, res, next) => {
+    let userName = authController.userAuthorised(req)
+
+    if (typeof userName === "undefined") {
+        res.json({ statusCode: 401, message: 'no auth data in header' })
+    }
+    else {
+        ChangePasswordController.changePassword(req, res, userName)
     }
 })
 
