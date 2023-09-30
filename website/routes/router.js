@@ -7,6 +7,7 @@ let controllerKmeans = require('../controller/kmeansController.js');
 let controllerReduce = require('../controller/reduceController.js');
 const cons = require("consolidate");
 const contactController = require('../controller/contactController');
+const userController = require('../controller/userController');
 const authController = require('../controller/authController.js')
 const reduceUrl = 'http://localhost:3000/api/queryreduce';
 
@@ -158,14 +159,15 @@ router.get('/requestshistory', (req, res, next) => {
     }
 })
 
-router.get('/userprofile', (req, res, next) => {
+router.get('/userprofile', async (req, res, next) => {
     let userName = authController.userAuthorised(req)
 
     if (typeof userName === "undefined") {
         res.json({ statusCode: 401, message: 'no auth data in header' })
     }
     else {
-        res.render('userprofile')
+        const userData = await userController.getProfile(userName);
+        res.render('userprofile', { userData : userData})
     }
 })
 
