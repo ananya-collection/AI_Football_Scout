@@ -12,17 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashboardoutput.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <script>
-
-    </script>
-    
-
-
 </head>
 
 <body>
@@ -30,8 +21,8 @@
         <div class="nav-wrapper">
             <div class="container">
 
-                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55"
-                        height="55"></a>
+                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg"
+                        alt="" width="55" height="55"></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/dashboardinput">Make AI Request</a></li>
                     <li><a href="/requestshistory">Requests History</a></li>
@@ -41,14 +32,10 @@
             </div>
         </div>
     </nav>
-
     <main>
         <div class="container">
             <!--- ADD yours content here-->
-            <h1>Searching for <%= players.playerCategory %> <%= players.position %>s in <%= players.ageGroup %></h1>
-            <a href ="/requestshistory" class="waves-effect waves-light btn"><i class="material-icons right">history</i>Query History</a>
-            <a href ="/shortlist" ><button class="waves-effect waves-light btn" id="shortlistButton"></button></a>
-            <button class="waves-effect waves-light btn" id="clearShortlist" onclick="clearShortlist()">Clear Shortlist</button>
+            <h1>Shortlist</h1>
             <table class="striped responsive-table">
                 <thead>
                 <tr>
@@ -59,24 +46,19 @@
                     <th>Position</th>
                     <th>Age</th>
                     <th>Nationality</th>
-                    <th>Shortlist</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <% for(let i=0; i< players.length; i++) { %>
+                <% for(let i=0; i< shortlistArr.length; i++) { %>
                 <tr>
                     <td><%= i+1 %> </td>
-                    <td><a href="/playerStats?playerId=<%= players[i]._id %>"><%= players[i].name %></a></td>
-                    <td><%= players[i].team_name %></td>
-                    <td><%= players[i].league_season %></td>
-                    <td><%= players[i].position %></td>
-                    <td><%= players[i].age %></td>
-                    <td><%= players[i].player_nationality %></td>
-                    <td>
-                            <input type="hidden" name="playerId" value="<%= players[i]._id %>">
-                            <button type="submit" class="btn-floating btn-large waves-effect waves-light green" onclick="addToShortList('<%= JSON.stringify(players[i]) %>')">+</button>
-                    </td>
+                    <td><a href="/playerStats?playerId=<%= shortlistArr[i]._id %>"><%= shortlistArr[i].name %></a></td>
+                    <td><%= shortlistArr[i].team_name %></td>
+                    <td><%= shortlistArr[i].league_season %></td>
+                    <td><%= shortlistArr[i].position %></td>
+                    <td><%= shortlistArr[i].age %></td>
+                    <td><%= shortlistArr[i].player_nationality %></td>
                 </tr>
                 <% } %>
                 </tbody>
@@ -87,7 +69,6 @@
 
     </main>
 
-
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
@@ -96,10 +77,6 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="/path/to/socket.io.js"></script>
-    <script src="./js/shortlist.js"></script>
 </body>
 
 </html>
