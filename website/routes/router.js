@@ -109,7 +109,7 @@ router.get('/subscription', (req, res, next) => {
 })
 
 router.get('/login', (req, res, next) => {
-    res.render('login')
+    res.render('loginSignup')
 })
 
 router.get('/signup', (req, res, next) => {
