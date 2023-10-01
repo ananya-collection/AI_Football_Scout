@@ -5,8 +5,12 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+const http = require('http');
+const cors = require('cors');
 
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -17,13 +21,16 @@ app.set('view engine', 'ejs')
 
 require('./dbConnection.js');
 let router = require('./routes/router.js');
-
-
 app.use('/api', router)
 app.use('/',router)
 app.use(cookieParser())
 
-app.listen(port, ()=>{
+const server = http.createServer(app);
+const socket = require('./ioSockets.js');
+const io = socket.getSocket(server);
+
+
+server.listen(port, ()=>{
     //upon server start this logic will be fired
     console.log('server started using port: ' + port);
 });

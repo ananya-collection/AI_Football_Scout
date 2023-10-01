@@ -36,7 +36,7 @@ router.post('/getdataforai', (req, res) => {
                 players.playerCategory = playerCategory.toLowerCase();
 
                 res.render('dashboardoutput', { players: players });
-                request.put({ url: reduceUrl, form: { action: -1 }, headers: {'cookie': `type=internal; username=${userName}`} });
+                request.put({ url: reduceUrl, form: { action: -1 }, headers: { 'cookie': `type=internal; username=${userName}` } });
 
             })
             .catch((error) => {
@@ -81,6 +81,20 @@ router.delete('/api/deleteaftertest', (req, res, next) => {
         controllerKmeans.deleteRecord(req, res)
     }
 });
+
+// get users requests amount
+router.get('/api/getuserrequests', async (req, res, next) => {
+    let userName = authController.userAuthorised(req)
+
+    if (typeof userName === "undefined") {
+        res.json({ statusCode: 401, message: 'no auth data in header' })
+    }
+    else {
+        let result = await userController.getProfile(userName);
+        res.status(201).json({ statusCode: 201, data: result[0].queries, message: 'success' });
+    }
+});
+
 
 // Define a route for saving contact information
 router.post('/api/contact', (req, res, next) => {

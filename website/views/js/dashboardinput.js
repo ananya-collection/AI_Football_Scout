@@ -1,3 +1,5 @@
+
+// block stepper AI input form block with validation function
 var stepper = document.querySelector('.stepper');
 var stepperInstace = new MStepper(stepper, {
     firstActive: 0,
@@ -75,7 +77,6 @@ function positionClickAndSelect() {
                 delete selection.position
             }
 
-          //  console.log(selection)
             document.getElementById("AiInputFormPosition").value = selection['position'];
         });
     });
@@ -134,7 +135,6 @@ function ageRangeClickAndSelect() {
                 selected = false;
                 delete selection.ageGroup
             }
-          //  console.log(selection)
             document.getElementById("AiInputFormAgeGroup").value = selection['ageGroup'];
         });
     });
@@ -196,9 +196,7 @@ function categoryClickAndSelect() {
                 delete selection.playerCategory
 
             }
-           // console.log(selection)
             document.getElementById("AiInputFormCategory").value = selection['playerCategory'];
-          ///  console.log(document.forms["AiInputForm"])
         });
     });
 };
@@ -209,4 +207,66 @@ function validateForm() {
         responce = true;
     }
     return responce;
+}
+
+// block for recieving notifications
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+});
+
+
+const notify = document.querySelector('#notification');
+const button = document.querySelector('#notification_button');
+const socket = io();
+
+let notificationCounter = 0;
+socket.on('userQueries', (data) => {
+
+
+    var li = document.createElement("li");
+    var textMessage = document.createElement("p");
+    li.classList.add('collection-item');
+    li.style.backgroundColor = '#fdfcdc';
+    li.style.margin = '15px';
+    li.style.border = '1px solid #e0e0e0';
+    notificationCounter++;
+    li.appendChild(textMessage)
+    textMessage.innerHTML = 'Dear customer, kindly reminder that your remaining requests to AI is <b>' + data +'</b>.'
+    notify.appendChild(li);
+
+    let messageList = Array.from(document.querySelectorAll('.collection-item'))
+    for (i = 0; i < messageList.length; ++i) {
+        messageList[i].addEventListener('click', changeColorReaded)
+    }
+
+    if (notificationCounter === 0) {
+        button.classList.remove('pulse');
+        button.style.backgroundColor = '#00afb9';
+    }
+    else {
+        button.classList.add('pulse');
+        button.style.backgroundColor = '#f07167';
+    }
+
+});
+
+
+
+function changeColorReaded() {
+    if (!this.innerHTML.includes('[readed]')) {
+        this.style.backgroundColor = 'white';
+        this.style.color = 'gray'
+        this.innerHTML = '[readed] ' + this.innerHTML
+        notificationCounter--
+
+        if (notificationCounter === 0) {
+            button.classList.remove('pulse');
+            button.style.backgroundColor = '#00afb9';
+        }
+        else {
+            button.classList.add('pulse');
+            button.style.backgroundColor = '#f07167';
+        }
+    }
 }
