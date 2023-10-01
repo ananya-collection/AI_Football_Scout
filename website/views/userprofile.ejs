@@ -35,30 +35,39 @@
 
     <main class="container">
         <h1>User Profile</h1>
-        <div class="row">
-            <div class="col s12">
-                <div class="card">
-                    <div class="card-content">
-                        <% userData.forEach(function(user) { %>
-                        <ul class="collection">
-                            <li class="collection-item">
-                                <span class="title">Username:</span>
-                                <p><%= user.user %></p>
-                            </li>
-                            <li class="collection-item">
-                                <span class="title">Email:</span>
-                                <p><%= user.email %></p>
-                            </li>
-                            <li class="collection-item">
-                                <span class="title">Plan:</span>
-                                <p><%= user.plan %></p>
-                            </li>
-                            <li class="collection-item">
-                                <span class="title">Remaining Queries:</span>
-                                <p><%= user.queries %></p>
-                            </li>
-                        </ul>
-                        <% }); %>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">User Information</span>
+                            <% userData.forEach(function(user) { %>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="username" type="text" class="validate" value=<%= user.user %> readonly disabled>
+                                    <label for="username">Username</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="email" type="email" class="validate" value=<%= user.email %> readonly disabled>
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="plan" type="text" class="validate" value=<%= user.plan %> readonly disabled>
+                                    <label for="plan">Plan</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="queries" type="text" class="validate" value=<%= user.queries %> readonly disabled>
+                                    <label for="queries">Queries</label>
+                                </div>
+                            </div>
+                            <% }); %>
+                        </div>
+                        <div class="card-action">
+                            <a href="/changepassword" class="btn waves-effect waves-light" type="button" id="changePasswordBtn">Change Password</a>
+                            <button class="btn waves-effect waves-light" type="button" id="changeSubscriptionBtn">Change Subscription</button>
+                        </div>
                     </div>
                 </div>
             </div>
