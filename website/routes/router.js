@@ -1,8 +1,8 @@
 require("dotenv").config()
 const request = require('request');
-
 let express = require("express");
 let router = express.Router();
+
 let controllerKmeans = require('../controller/kmeansController.js');
 let controllerReduce = require('../controller/reduceController.js');
 const cons = require("consolidate");
@@ -14,6 +14,9 @@ const reduceUrl = 'http://localhost:3000/api/queryreduce';
 
 
 const stripe = require('stripe')(process.env.Secret_Key)
+
+const { initializeSocket,shortlist } = require('../views/js/socketManager.js');
+
 
 // Define a route for generating AI predictions
 router.post('/getdataforai', (req, res) => {
@@ -265,6 +268,27 @@ router.get('/paymentsuccess', (req, res, next) => {
 router.get('/paymentfailure', (req, res, next) => {
     res.render('paymentfailure')
 })
+
+router.get('/shortlist', (req, res, next) => {
+
+    let userName = authController.userAuthorised(req)
+
+    if (typeof userName === "undefined") {
+        res.json({ statusCode: 401, message: 'no auth data in header' })
+    }
+    else {
+        const shortlistArr = [];
+        shortlist.forEach((jsonString) => {
+          const parsedJSON = JSON.parse(jsonString);
+          shortlistArr.push(parsedJSON);
+        });
+        
+        console.log("shortlist view ", shortlistArr)
+        res.render('shortlist', {shortlistArr : shortlistArr})
+       
+    }
+})
+
 
 
 
