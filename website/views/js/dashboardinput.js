@@ -1,3 +1,6 @@
+
+// block stepper AI input form block with validation function
+
 var stepper = document.querySelector('.stepper');
 var stepperInstace = new MStepper(stepper, {
     firstActive: 0,
@@ -75,7 +78,6 @@ function positionClickAndSelect() {
                 delete selection.position
             }
 
-          //  console.log(selection)
             document.getElementById("AiInputFormPosition").value = selection['position'];
         });
     });
@@ -134,7 +136,6 @@ function ageRangeClickAndSelect() {
                 selected = false;
                 delete selection.ageGroup
             }
-          //  console.log(selection)
             document.getElementById("AiInputFormAgeGroup").value = selection['ageGroup'];
         });
     });
@@ -196,9 +197,7 @@ function categoryClickAndSelect() {
                 delete selection.playerCategory
 
             }
-           // console.log(selection)
             document.getElementById("AiInputFormCategory").value = selection['playerCategory'];
-          ///  console.log(document.forms["AiInputForm"])
         });
     });
 };
@@ -209,4 +208,103 @@ function validateForm() {
         responce = true;
     }
     return responce;
+}
+
+
+// block for recieving notifications
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+});
+
+
+const notify = document.querySelector('#notification');
+const button = document.querySelector('#notification_button');
+const socket = io();
+
+let readedList = [];
+socket.emit('queriesAlert')
+socket.emit('queriesAlertReaded')
+
+// block changing notification to read on the backend using sockets
+socket.on('queriesAlertAmount', () => {
+    let messageList = Array.from(document.querySelectorAll('.collection-item'));
+    let readObj;
+    for (i = 0; i < messageList.length; i++) {
+        messageList[i].addEventListener('click', function (e) {
+            if (readedList.length === 0) {
+                readObj = { notifyId: e.target.getAttribute('id'), queries: e.target.getAttribute('queries') }
+                readedList.push(readObj)
+                socket.emit('queriesAlertReaded', { notifyId: parseInt(readObj.notifyId), queries: parseInt(readObj.queries) })
+            }
+            else {
+                readedList.forEach(function (value) {
+                    if (value.notifyId !== e.target.getAttribute('id')) {
+                        readObj = { notifyId: e.target.getAttribute('id'), queries: e.target.getAttribute('queries') }
+                        readedList.push(readObj)
+                        socket.emit('queriesAlertReaded', { notifyId: parseInt(readObj.notifyId), queries: parseInt(readObj.queries) })
+                    }
+                });
+            }
+        });
+    }
+    countReaded()
+});
+
+// adding yellow color to unread messages
+socket.on('queriesAlertAmount', (data) => {
+    data.forEach(function (value) {
+        if (!document.getElementById(String(value.notifyId))) {
+            var li = document.createElement("li");
+            li.setAttribute('id', String(value.notifyId))
+            li.setAttribute('queries', String(value.queries))
+            li.classList.add('collection-item');
+            li.style.backgroundColor = '#fdfcdc';
+            li.style.margin = '15px';
+            li.style.border = '1px solid #e0e0e0';
+            li.innerHTML = 'Dear customer, kindly reminder that your remaining requests to AI is <b>' + value.queries + '</b>.'
+            notify.appendChild(li);
+        }
+    });
+    countReaded()
+});
+
+// adding white color to readed messages
+socket.on('queriesAlertAmountReaded', (data) => {
+    data.forEach(function (value) {
+        if (document.getElementById(String(value.notifyId)) !== null)
+            document.getElementById(String(value.notifyId)).remove()
+        if (!document.getElementById(String(value.notifyId))) {
+            var li = document.createElement("li");
+            li.setAttribute('id', String(value.notifyId))
+            li.setAttribute('queries', String(value.queries))
+            li.classList.add('collection-item');
+            li.style.backgroundColor = 'white';
+            li.style.margin = '15px';
+            li.style.border = '1px solid #e0e0e0';
+            li.style.color = 'gray'
+            li.innerHTML = '[readed] Dear customer, kindly reminder that your remaining requests to AI is <b>' + value.queries + '</b>.'
+            notify.appendChild(li);
+        }
+    });
+    countReaded()
+});
+
+
+// notification button highlight method
+function countReaded() {
+    let notificationCounter = 0;
+    let messageList = Array.from(document.querySelectorAll('.collection-item'));
+    for (i = 0; i < messageList.length; i++) {
+        if (!messageList[i].innerHTML.includes('[readed]'))
+            notificationCounter++
+    }
+    if (notificationCounter === 0) {
+        button.classList.remove('pulse');
+        button.style.backgroundColor = '#00afb9';
+    }
+    else {
+        button.classList.add('pulse');
+        button.style.backgroundColor = '#f07167';
+    }
 }
