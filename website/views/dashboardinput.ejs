@@ -40,7 +40,29 @@
 
     <main>
         <div class="container">
-            <h3 class="center-align">AI Football Scout request form</h3>
+            <div class="row">
+                <div class="col s9 m9">
+                    <h3 class="left-align">AI Football Scout request form</h3>
+                </div>
+                <div class="col s3 m3" style="display:flex;align-items:center;justify-content:flex-end">
+                    <button data-target="notification_popup" id="notification_button"
+                        class="btn modal-trigger">Notifications</button>
+                </div>
+                <!-- Modal Structure -->
+                <div id="notification_popup" class="modal bottom-sheet">
+                    <div class="modal-content">
+                        <div class="container">
+                            <div class="row">
+                                <h3>Notifications</h3>
+                            </div>
+                            <div class="col s9 m9">
+                                <ul id="notification" class="collection">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <form name="AiInputForm" action="/getdataforai" method="post" onsubmit="return validateForm()">
                 <input id="AiInputFormPosition" type="hidden" name="position" value="">
                 <input id="AiInputFormAgeGroup" type="hidden" name="ageGroup" value="">
@@ -271,7 +293,9 @@
             </div>
         </div>
     </footer>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="js/dashboardinput.js"> </script>
+    
 </body>
 
 </html>
