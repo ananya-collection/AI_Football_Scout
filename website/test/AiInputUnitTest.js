@@ -49,7 +49,7 @@ testingValues.forEach(function (value) {
 
 describe(`DELETE values after test success POST inputs`, function () {
     it('DELETE after test POST status code 202', function (done) {
-        request.delete({ url: urlAiApi_delete, form: { successTests: successTests },headers: {'cookie': 'type=unittests; username=bohdan'} }, function (error, response, anotherThing) {
+        request.delete({ url: urlAiApi_delete, form: { successTests: successTests, type: 'aiinput' },headers: {'cookie': 'type=unittests; username=bohdan'} }, function (error, response, anotherThing) {
             let successCode;
             try {
                 let responseObj = JSON.parse(anotherThing);
@@ -67,8 +67,8 @@ describe(`DELETE values after test success POST inputs`, function () {
     });
 });
 
-describe('PUT all spent testing requests quota', function () {
-    it('returning all spent testing quota using PUT status code 202', function (done) {
+describe(`PUT 80 spent testing requests quota back to user`, function () {
+    it(`returning 80 spent testing quota using PUT status code 202`, function (done) {
         request.put({ url: urlReduceQueries, form: { action: successTests }, headers: {'cookie': 'type=unittests; username=bohdan'}}, function (error, response, anotherThing) {
             let responseObj = JSON.parse(anotherThing);
             let responseCode = responseObj.statusCode;

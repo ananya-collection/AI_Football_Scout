@@ -4,7 +4,7 @@
   "description": "The project website for SIT725.",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --reporter spec",
+    "test": "mocha --reporter spec --timeout 10000",
     "start": "node app.js"
   },
   "author": "",
