@@ -1,81 +1,5 @@
+
 //Retrieve form data for signup
-
-// const formSubmitted = () => {
-//     let formData = {
-//     name : document.getElementById("nameField").value,
-//     email : document.getElementById("email").value,
-//     password : document.getElementById("password").value
-// };
-//     console.log(formData);
-//     console.log(signUp_post);
-//     signUp_post(formData);
-    
-// }
-
-// regForm.addEventListener($("#signUpBtn"),(event)=>{
-//     event.preventDefault();
-//     const name = document.getElementById('nameField').value;
-//     const email = document.getElementById('email').value;
-//     const password = document.getElementById('password').value;
-//     user= JSON.stringify({
-//         name,
-//         email,
-//         password
-
-// });
-// });
-
-// const formSubmitted = function(){
-//     let formData = {};
-//     formData.Name = $('#nameField').val();
-//     formData.Email = $('#email').val();
-//     formData.Password = $('#password').val();
-
-//     console.log(formData);
-//     (signUp_post(formData))
-    
-// }
-
-
-// post function for sign up
-// async function signUp_post(user){
-//     const result = await fetch('/signUp', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: user,
-//         success: (result)=>{
-//             if(result.statusCode == 201){
-//                 alert('user post successful');
-//             }
-//         }}).then((res)=>res.json())
-//           console.log(result);
-// }
-
-// function signUp_post(user){
-//     $.ajax({
-//         url:'/signUp',
-//         type:'POST',
-//         data:user,
-//         success: (result)=>{
-//             if(result.statusCode == 201){
-//                 alert('user post successful');
-//             }
-//         }
-//     });
-// }
-
-// async function signUp_post(user){
-//     const result = await fetch('/signUp', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: user
-//         }).then((res)=>res.json())
-//         console.log(result);
-// }
 
 const formEl= document.querySelector('#regForm');
 formEl.addEventListener($('#signUpBtn'),signUp_post);
@@ -116,3 +40,6 @@ $().ready(function(){
      
     });
 });
+
+
+

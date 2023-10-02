@@ -111,7 +111,7 @@ router.get('/subscription', (req, res, next) => {
 })
 
 router.get('/login', (req, res, next) => {
-    res.render('login')
+    res.render('loginSignup')
 })
 
 router.post('/api/signUp'),async(req,res)=>{
