@@ -41,7 +41,8 @@ const changePasswordController = {
 
            // Update the record
            const result = await collection.updateOne(filter, updateDoc);
-           res.status(201).json({ 
+           res.status(202).json({ 
+            statusCode: 202,
             message: 'Password changed successfully',
             status : true,
            });

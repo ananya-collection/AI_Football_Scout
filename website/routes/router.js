@@ -79,8 +79,10 @@ router.delete('/api/deleteaftertest', (req, res, next) => {
     if (typeof userName === "undefined") {
         res.json({ statusCode: 401, message: 'no auth data in header' })
     }
-    else {
-        controllerKmeans.deleteRecord(req, res)
+    else { if (req.body.type === 'aiinput')
+              controllerKmeans.deleteRecord(req, res)
+           if (req.body.type === 'contact')
+              contactController.deleteRecord(req, res)
     }
 });
 
