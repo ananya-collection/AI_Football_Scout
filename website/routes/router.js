@@ -114,9 +114,17 @@ router.get('/login', (req, res, next) => {
     res.render('login')
 })
 
-router.get('/signup', (req, res, next) => {
-    res.render('signup')
-})
+router.post('/api/signUp'),async(req,res)=>{
+    //  console.log('hi')
+    signUpController.signUp_post(req,res,next);
+    res.redirect('/login')
+    alert('Please login to your account');
+    res.end()
+}
+
+// router.get('/signup', (req, res, next) => {
+//     res.render('signup')
+// })
 
 router.get('/dashboardinput', (req, res, next) => {
     let userName = authController.userAuthorised(req)
