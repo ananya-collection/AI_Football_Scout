@@ -4,7 +4,7 @@ const urlAiApi = 'http://localhost:3000/getdataforai';
 const urlAiApi_delete = 'http://localhost:3000/api/deleteaftertest';
 const urlReduceQueries = 'http://localhost:3000/api/queryreduce';
 
-// testing AI predictions api with 80 possible user inputs
+// Unit tests API for AI predictions api with 80 possible user inputs
 const availablePositions = ['Attacker', 'Defender', 'Midfielder', 'Goalkeeper'];
 const availableAgeGroups = ['20-23 age', '24-30 age', 'age above 30', 'age below 20'];
 const availableCategories = ['prospective', 'average', 'belowAverage', 'lowAppereances', 'top'];
@@ -104,3 +104,4 @@ describe('PUT-1 to return testing spend to user quota', function () {
         });
     });
 });
+
