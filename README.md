@@ -93,7 +93,7 @@ npm test
 
 ## Docummentation <a name = "documentation"></a>
 
-Project documentation links with website, prototype, backend structure with APIs and MongodB schemas.
+Project documentation links with website site map, prototype, backend structure with APIs and MongodB schemas.
 
 1. Website Site Map link https://www.figma.com/proto/S3c6SQUlU5uIpOVhQ0cpiT/AI-Football-Scout-Application-Design?node-id=1-2&scaling=scale-down&mode=design&t=iEeAUb5KqPk0vaOp-1
 2. API Structure link https://www.figma.com/file/glSk32ck1cGub4Ya7GXMBL/AI-Football-Scout-API-Diagram?type=whiteboard&t=d6k3PZKTdDizfjC5-1
