@@ -1,6 +1,4 @@
-
 // block stepper AI input form block with validation function
-
 var stepper = document.querySelector('.stepper');
 var stepperInstace = new MStepper(stepper, {
     firstActive: 0,
@@ -27,6 +25,7 @@ function validationFunction(stepperForm, activeStepContent) {
     return responce
 }
 
+// selection Position method
 function positionClickAndSelect() {
     let cards = Array.from(document.querySelectorAll('#position_card'))
     let button = document.querySelector('#continue_button_1')
@@ -83,6 +82,7 @@ function positionClickAndSelect() {
     });
 };
 
+// selection ageRange method
 function ageRangeClickAndSelect() {
     let cards = Array.from(document.querySelectorAll('#ageRange_card'))
     let button = document.querySelector('#continue_button_2')
@@ -141,7 +141,7 @@ function ageRangeClickAndSelect() {
     });
 };
 
-
+// selection playerCategory method
 function categoryClickAndSelect() {
     let cards = Array.from(document.querySelectorAll('#category_card'))
     let button = document.querySelector('#submit_button')

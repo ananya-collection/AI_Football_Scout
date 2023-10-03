@@ -21,8 +21,8 @@
         <div class="nav-wrapper">
             <div class="container">
 
-                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg"
-                        alt="" width="55" height="55"></a>
+                <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55"
+                        height="55"></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
@@ -35,29 +35,29 @@
             </div>
         </div>
     </nav>
-
-    <div class="container">
-        <h1>Contact Us</h1>
-        <p>Have questions or feedback? Reach out to us using the form below:</p>
-        <div id="responseMessage"></div>
-        <form id="contactForm" method="post">
-            <div class="input-field">
-                <input type="text" id="name" name="name" required>
-                <label for="name">Your Name</label>
-            </div>
-            <div class="input-field">
-                <input type="email" id="email" name="email" required>
-                <label for="email">Your Email</label>
-            </div>
-            <div class="input-field">
-                <textarea id="description" class="materialize-textarea" name="message" required></textarea>
-                <label for="description">Description</label>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit">Submit</button>
-        </form>
-        <br><br><br>
-    </div>
-
+    <main>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Have questions or feedback? Reach out to us using the form below:</p>
+            <div id="responseMessage"></div>
+            <form id="contactForm" method="post">
+                <div class="input-field">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Your Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Your Email</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="description" class="materialize-textarea" name="message" required></textarea>
+                    <label for="description">Description</label>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit">Submit</button>
+            </form>
+            <br><br><br>
+        </div>
+    </main>
 
     <footer class="page-footer">
         <div class="container">
@@ -94,35 +94,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    const contactForm = document.getElementById('contactForm');
-    const responseMessage = document.getElementById('responseMessage');
-
-    contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const formData = new FormData(contactForm);
-
-        fetch('/api/contact', {
-            method: 'POST',
-            body: JSON.stringify(Object.fromEntries(formData)),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                responseMessage.innerHTML = data.message;
-                contactForm.reset();
-            })
-            .catch((error) => {
-                console.error(error);
-                responseMessage.innerHTML = 'An error occurred. Please try again later.';
-            });
-    });
-});
-    </script>
+    <script src="js/contactus.js"> </script>
 </body>
 
 </html>

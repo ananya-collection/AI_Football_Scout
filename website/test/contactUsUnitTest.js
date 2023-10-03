@@ -3,7 +3,7 @@ const request = require('request');
 const url = 'http://localhost:3000/api/contact';
 const url_delete = 'http://localhost:3000/api/deleteaftertest';
 
-// Unit tests for collecting user queries using Contact US page and deleting test values. 
+// Unit tests API for collecting user queries using Contact Us page and deleting test values. 
 const testRequests = [{
     name: 'UnitTest1',
     email: 'unittest1@gmail.com',

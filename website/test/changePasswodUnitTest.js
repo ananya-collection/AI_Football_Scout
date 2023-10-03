@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const request = require('request');
 const url = 'http://localhost:3000/api/change-password';
 
-// Unit tests for changing password and reverting it to original. 
+// Unit tests API for changing password and reverting it to original. 
 let originalPassword = '12345';
 let currentPassword = '12345';
 let testPasswords = [{
