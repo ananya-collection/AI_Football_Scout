@@ -240,9 +240,9 @@ router.get('/playerStats', (req, res) => {
 });
 
 const subPrices = new Map([
-    [1, { priceInCents: 1999, name: "Tier 1 Sub" }],
-    [2, { priceInCents: 3999, name: "Tier 2 Sub" }],
-    [3, { priceInCents: 5999, name: "Tier 3 Sub" }]
+    [1, { priceInCents: 999, name: "Basic Sub" }],
+    [2, { priceInCents: 1999, name: "Pro Sub" }],
+    [3, { priceInCents: 4999, name: "Premium Sub" }]
 ])
 
 router.post("/create-checkout-session", async (req, res) => {
@@ -271,6 +271,7 @@ router.post("/create-checkout-session", async (req, res) => {
         res.status(500).json({ error: e.message })
     }
 })
+
 
 
 router.get('/paymentsuccess', (req, res, next) => {

@@ -13,7 +13,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "bson": "^6.1.0",
-    "chai": "^4.3.8",
+    "chai": "^4.3.10",
     "consolidate": "^0.16.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
@@ -26,7 +26,6 @@
     "jsdom": "^22.1.0",
     "jsonwebtoken": "^9.0.2",
     "materialize-css": "^1.0.0",
-    "mocha": "^10.2.0",
     "mongodb": "^4.4.1",
     "node-kmeans": "^1.1.9",
     "nodemon": "^3.0.1",
@@ -38,8 +37,10 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
+    "cheerio": "^1.0.0-rc.12",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "mocha": "^10.2.0",
     "npm-run-all": "^4.1.5"
   }
 }

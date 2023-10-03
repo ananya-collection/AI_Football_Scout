@@ -162,8 +162,19 @@ async function getQueryHistory(request) {
     }
 }
 
+async function getQueryHistoryRows(request) {
+    try {
+        //console.log(request);
+        const query = await aiCollectionOutput.find().toArray();
+        console.log("query length is ", query.length);
+        return query.length;
+    } catch (error) {
+        throw error;
+    }
+}
+
 module.exports = {
     getDataForPrediction, convertDataForPrediction, getPrediction,
     convertPrediction, insertAiRequest, getPlayerStats, getQueryHistory,
-    deleteRecords, findRecords
+    deleteRecords, findRecords, getQueryHistoryRows
 }
