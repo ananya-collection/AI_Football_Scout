@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser')
 
 let http = require('http').createServer(app);
 const { initializeSocket } = require('./views/js/socketManager');
+
 const io = initializeSocket(http);
 
 // Set up middleware to attach io to req
@@ -38,9 +39,6 @@ let router = require('./routes/router.js');
 app.use('/api', router)
 app.use('/',router)
 app.use(cookieParser())
-
-
-
 
 http.listen(port, ()=>{
     //upon server start this logic will be fired
