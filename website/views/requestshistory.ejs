@@ -51,6 +51,7 @@
                 </thead>
 
                 <tbody>
+                
                 <% for(let i=0; i< queries.length; i++) { %>
                 <tr>
                     <td><%= i+1 %> </td>
@@ -58,8 +59,10 @@
                     <td><%= queries[i].position %></td>
                     <td><%= queries[i].ageGroup %></td>
                     <td><%= queries[i].playerCategory%></td>
-                    
-                        <%for(let j=0; j<3; j++) { %>
+
+                    <% const length = queries[i].predictions.length < 3? queries[i].predictions.length : 3 %>
+                    <% console.log(length, queries[i]) %>
+                        <%for(let j=0; j<length; j++) { %>
                             
                             <td><%= queries[i].predictions[j].name%></td>
                             <% } %>
