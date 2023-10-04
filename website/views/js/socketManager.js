@@ -36,6 +36,15 @@ const initializeSocket = (server) => {
             io.emit('shortlistCleared', Array.from(shortlist))
         })
 
+        let count = shortlist.size == null? 0:shortlist.size;
+
+        socket.emit('initialCount', count);
+
+        socket.on('getInitialCount', () => {
+          // Send the initial count to the client when requested
+          socket.emit('initialCount', count);
+        });
+
         // socket for unread messages
         let socketHeaders = socket.handshake.headers
         socket.on('queriesAlert', () => {
@@ -84,5 +93,6 @@ const initializeSocket = (server) => {
 
     return io;
 };
+
 
 module.exports = { initializeSocket, shortlist };
