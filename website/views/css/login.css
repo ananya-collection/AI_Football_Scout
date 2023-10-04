@@ -25,7 +25,7 @@ main .container {
     left: 50%;
     transform: translate(-50%,-50%); 
     background: #fff;
-    padding: 50px 60px 70px;
+    padding: 43px 60px 88px;
     text-align: center;
 }
 .form-box h3{
@@ -51,10 +51,6 @@ main .container {
     border-radius: 3px;
     display: flex;
     align-items: center;
-
-    /* max-height: 65px;
-    transition: max-height 0.5s;
-    overflow: hidden; */
 }
 input{
     width: 100%;
@@ -71,36 +67,30 @@ form p{
     text-align: left;
     font-size: 13px;
     padding-bottom: 10px;
+    position: absolute;
+    top: 75%;
 }
 form p a{
     text-decoration: none;
     color: #0081a7;
 }
-
 .btn-field{
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 .btn-field button{
-    flex-basis: 48%;
     background: #0081a7;
     color: #fff;
     height: 40px;
     border-radius: 20px;
     border: 0;
     outline: 0;
-    cursor: pointer;
-    transition: background 1s;
+    position: absolute;
+    left: 34%;
+    top: 85%;
+    width: 35%;
 }
- .btn-field button.disable{
-    background: #eaeaea;
-    color: #0081a7;
-}  
-.btn-field button.enable{
-    background: #0081a7;
-    color: #fff;
-}  
 
 
 

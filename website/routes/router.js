@@ -2,6 +2,10 @@ require("dotenv").config()
 const request = require('request');
 let express = require("express");
 let router = express.Router();
+var User = require('../model/loginModel.js');
+var passport = require('passport');
+var passportConf = require('../config-passport.js');
+const flash = require('express-flash');
 
 let controllerKmeans = require('../controller/kmeansController.js');
 let controllerReduce = require('../controller/reduceController.js');
@@ -128,13 +132,58 @@ router.get('/subscription', (req, res, next) => {
     res.render('subscription')
 })
 
-router.get('/login', (req, res, next) => {
-    res.render('loginSignup')
+router.get('/register', (req, res, next) => {
+    res.render('register')
 })
 
-router.get('/signup', (req, res, next) => {
-    res.render('signup')
+router.post('/register', async function (req, res, next) {
+    try {
+      const existing_User = await User.findOne({ email: req.body.email });
+      if (existing_User) {
+        flash('Account with this email address already exists','errors');
+        return res.redirect('/register');
+      }
+      var user = new User();
+      user.email = req.body.email;
+      user.password = req.body.password;
+      await user.save();
+  
+      req.logIn(user, function (err) {
+        if (err) return next(err);
+        res.redirect('/dashboardinput');
+      });
+  
+    } catch (err) {
+      next(err);
+    }
+  });
+
+// router.post('/register', async(req, res, next) => {
+//     try{
+//         const dt_store= new Register({
+//             name: req.body.name,
+//             email: req.body.email,
+//             password: req.body.password
+//         })
+//         // saving data in db
+//         const dt_registered= await dt_store.save();
+//         console.log(dt_registered);
+//         res.status(201).render('/login');
+//     }
+//     catch(error){
+//         res.status(400).send(error);
+//     }   
+// })
+
+router.get('/login', (req, res, next) => {
+    res.render('login')
 })
+
+router.post('/login', passport.authenticate('local-login', {
+    successRedirect: '/dashboardinput',
+    failureRedirect: '/',
+    failureFlash: true,
+  }));
 
 router.get('/dashboardinput', (req, res, next) => {
     let userName = authController.userAuthorised(req)
