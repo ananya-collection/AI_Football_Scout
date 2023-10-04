@@ -2,9 +2,9 @@ require("dotenv").config()
 const request = require('request');
 let express = require("express");
 let router = express.Router();
-var User = require('../model/loginModel.js');
+//var User = require('../model/loginModel.js');
 var passport = require('passport');
-var passportConf = require('../config-passport.js');
+var passportConf = require('../controller/passportController.js');
 const flash = require('express-flash');
 
 let controllerKmeans = require('../controller/kmeansController.js');
@@ -179,11 +179,11 @@ router.get('/login', (req, res, next) => {
     res.render('login')
 })
 
-router.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/dashboardinput',
-    failureRedirect: '/',
-    failureFlash: true,
-  }));
+router.post('/api/login',  (req, res, next) => {
+        
+    // here is start to export passport lib
+    passportConf.getUserPassport(req)
+  });
 
 router.get('/dashboardinput', (req, res, next) => {
     let userName = authController.userAuthorised(req)

@@ -31,11 +31,6 @@ app.use(express.static(path.join(__dirname, 'views'), {index: "home"}));
 app.set('views', 'views');
 app.set('view engine', 'ejs')
 
-app.use((req, res, next) => {
-    req.io = io;
-    next();
-});
-
 require('./dbConnection.js');
 let router = require('./routes/router.js');
 

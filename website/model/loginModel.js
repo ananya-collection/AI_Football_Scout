@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
-// let client = require('../dbConnection.js');
-// let collection= client.db('AIFootballScout').collection('Users');
+//let client = require('../dbConnection.js');
+//let collection= client.db('AIFootballScout').collection('Users');
 
 
 const registerSchema = new mongoose.Schema({
