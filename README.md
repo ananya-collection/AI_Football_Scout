@@ -61,8 +61,8 @@ account: s223306781@deakin.edu.au
 password: myuniversityproject
 ```
 
-For Providing payments please add real Stripe API code! Without API token payments don't work.
-BE CAREFUL with sharing API token, even test environment can be assessed by real API code to banking account.
+For Providing payments please add real Stripe API code! <b> Without Stripe API token payments don't work.</b> <br>
+BE CAREFUL with sharing API token, even test environment can be assessed by real API code, which leads to linked to banking account.
 
 
 ## Running the application <a name = "run"></a>

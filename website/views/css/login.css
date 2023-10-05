@@ -18,10 +18,6 @@ main {
     height: 500px
 }
 
-.card-panel{
-    width: 350px;
-    height: 500px
-}
 #container_main {
     display: flex;
     justify-content: center;
