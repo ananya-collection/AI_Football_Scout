@@ -11,10 +11,10 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px; /* Adjust margin as needed */
+    margin-bottom: 20px;
 }
 
 .buttons {
     display: flex;
-    gap: 10px; /* Adjust the space between buttons as needed */
+    gap: 10px;
 }
