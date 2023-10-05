@@ -61,6 +61,9 @@ account: s223306781@deakin.edu.au
 password: myuniversityproject
 ```
 
+For Providing payments please add real Stripe API code! Without API token payments don't work.
+BE CAREFUL with sharing API token, even test environment can be assessed by real API code to banking account.
+
 
 ## Running the application <a name = "run"></a>
 
@@ -96,7 +99,7 @@ npm test
 Project documentation links with website site map, prototype, backend structure with APIs and MongodB schemas.
 
 1. Website Site Map link https://www.figma.com/proto/S3c6SQUlU5uIpOVhQ0cpiT/AI-Football-Scout-Application-Design?node-id=1-2&scaling=scale-down&mode=design&t=iEeAUb5KqPk0vaOp-1
-2. API Structure link https://www.figma.com/file/glSk32ck1cGub4Ya7GXMBL/AI-Football-Scout-API-Diagram?type=whiteboard&t=d6k3PZKTdDizfjC5-1
+2. API Structure link https://www.figma.com/proto/2WmoTOSpwpGIXW0OYpbGdW/AI-Football-Scout-Hi-Fi-prototype?type=design&node-id=1-2&t=MA6VA2p4iz4gG0P6-1&scaling=min-zoom&page-id=0%3A1&mode=design
 3. Website prototyoe link https://www.figma.com/proto/bC4ONzLpMWTlRKlNNQX0ao/Blog%2CContact-Us%2CAbout%2CSubscription-page?type=design&node-id=1-2&t=aJr9XmIizacndUxb-1&scaling=min-zoom&page-id=0%3A1&mode=design
 
 
