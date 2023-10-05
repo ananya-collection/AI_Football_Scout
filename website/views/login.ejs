@@ -38,34 +38,29 @@
 
     <main>
         <div class="container">
-            <div class="form-box">
-                <h3 id="title">Sign Up</h3>
-                <form >
-                    <div class="input-group">
-                        <div class="input-field" id="nameField">
-                            <i class="fa-solid fa-user"></i>  
-                            <input type="text" placeholder="Name">
+            <div class="row">
+                <div class="form-box  col s12 offset s6 ">
+                    <h3 id="title">Sign In</h3>          
+                    <form action="/login" method="post">
+                        <div class="input-group">
+                            <div class="input-field" id="email">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="email" placeholder="Email" name="email">
+                            </div>
+                            <div class="input-field" id="password">
+                                <i class=" fa-solid fa-lock"></i>
+                                <input type="password" placeholder="Password" autocomplete="on" name="password">
+                            </div>
+                            <p>Are you new here?<a href="/register">Create account</a></p>
                         </div>
-                        <div class="input-field">
-                            <i class="fa-solid fa-envelope"></i>
-                            <input type="email" placeholder="Email">
+                        <div class="btn-field">
+                            <button type="submit" id="loginBtn">Sign in</button>
                         </div>
-                        <div class="input-field">
-                            <i class=" fa-solid fa-lock"></i>
-                            <input type="password" placeholder="Password">
-                        </div>
-                        <p>Forgot Password?<a href="#">Click Here!</a></p>
-                    </div>
-                    <div class="btn-field">
-                        <button type="button" id="signUpBtn">Sign up</button>
-                        <button type="button" id="loginBtn" class="disable">Sign in</button>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
+            </div>    
         </div>
      </main>
-    
-        
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
@@ -74,8 +69,6 @@
             </div>
         </div>
     </footer>
-    <script src="/js/login.js"></script> 
-    
 </body>
 
 </html>

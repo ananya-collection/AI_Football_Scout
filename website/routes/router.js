@@ -5,12 +5,15 @@ let router = express.Router();
 
 let controllerKmeans = require('../controller/kmeansController.js');
 let controllerReduce = require('../controller/reduceController.js');
+let controllerLogin =  require('../controller/loginController.js');
 const cons = require("consolidate");
 const contactController = require('../controller/contactController');
 const ChangePasswordController = require('../controller/changePasswordController');
 const userController = require('../controller/userController');
 const authController = require('../controller/authController.js')
 const reduceUrl = 'http://localhost:3000/api/queryreduce';
+
+
 
 
 const stripe = require('stripe')(process.env.Secret_Key)
@@ -128,13 +131,23 @@ router.get('/subscription', (req, res, next) => {
     res.render('subscription')
 })
 
-router.get('/login', (req, res, next) => {
-    res.render('loginSignup')
+router.get('/register', (req, res, next) => {
+    res.render('register')
 })
 
-router.get('/signup', (req, res, next) => {
-    res.render('signup')
+router.get('/login', (req, res, next) => {
+    res.render('login')
 })
+
+router.post('/register', (req, res, next) => {
+    
+    
+})
+
+router.post('/login', (req, res,next) => {
+    controllerLogin.login(req, res, next)
+})
+
 
 router.get('/dashboardinput', (req, res, next) => {
     let userName = authController.userAuthorised(req)

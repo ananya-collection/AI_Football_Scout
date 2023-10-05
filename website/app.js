@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser')
+const mongoose= require('mongoose');
 
 let http = require('http').createServer(app);
 const { initializeSocket } = require('./views/js/socketManager');

@@ -27,6 +27,7 @@
     "jsonwebtoken": "^9.0.2",
     "materialize-css": "^1.0.0",
     "mongodb": "^4.4.1",
+    "mongoose": "^7.5.3",
     "node-kmeans": "^1.1.9",
     "nodemon": "^3.0.1",
     "path": "^0.12.7",
