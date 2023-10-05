@@ -46,9 +46,13 @@
         <div class="container">
             <!--- ADD yours content here-->
             <h1>Searching for <%= players.playerCategory %> <%= players.position %>s in <%= players.ageGroup %></h1>
-            <a href ="/requestshistory" class="waves-effect waves-light btn"><i class="material-icons right">history</i>Query History</a>
-            <a href ="/shortlist" ><button class="waves-effect waves-light btn" id="shortlistButton"></button></a>
-            <button class="waves-effect waves-light btn" id="clearShortlist" onclick="clearShortlist()">Clear Shortlist</button>
+            <div class="flex-container">
+                <a href="/requestshistory" class="waves-effect waves-light btn"><i class="material-icons right">history</i>Query History</a>
+                <div class="buttons">
+                    <a href ="/shortlist" ><button class="waves-effect waves-light btn" id="shortlistButton"></button></a>
+                    <button class="waves-effect waves-light btn red" id="clearShortlist" onclick="clearShortlist()"><i class="material-icons right">delete</i> Clear Shortlist</button>
+                </div>
+            </div>
             <table class="striped responsive-table">
                 <thead>
                 <tr>
@@ -75,7 +79,7 @@
                     <td><%= players[i].player_nationality %></td>
                     <td>
                             <input type="hidden" name="playerId" value="<%= players[i]._id %>">
-                            <button type="submit" class="btn-floating btn-large waves-effect waves-light green" onclick="addToShortList('<%= JSON.stringify(players[i]) %>')">+</button>
+                            <button type="submit" class="btn-floating btn-large waves-effect waves-light green addShortlist" onclick="addToShortList('<%= JSON.stringify(players[i]) %>')">+</button>
                     </td>
                 </tr>
                 <% } %>

@@ -1,17 +1,17 @@
 const socket = io();
 
-document.addEventListener('DOMContentLoaded', () => {
-    const shortlistButton = document.getElementById('shortlistButton');
-
-    // Function to update the button text with the shortlist count
-    function updateButtonCount(count) {
-        shortlistButton.textContent = `Current Shortlist(${count})`;
-    }
-
-    // Set the initial count on page load
-    const initialCount = getShortlistCountFromStorage();
+socket.on('initialCount', (initialCount) => {
+    console.log('Initial count received from server:', initialCount);
+  
     updateButtonCount(initialCount);
-});
+  });
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const shortlistButton = document.getElementById('shortlistButton');
+  
+
+    socket.emit('getInitialCount');
+  });
 
 function addToShortList(playerId) {
     // Emit a socket event to the server with the player ID
@@ -24,8 +24,6 @@ function clearShortlist(){
 }
 
 socket.on('shortlistUpdated', (shortlist) => {
-    // Update the UI to display the updated shortlist
-    // For example, you can populate a list or update a badge with the count.
 
     count = shortlist.length
     console.log('Shortlist updated:', shortlist);
@@ -54,14 +52,46 @@ shortlistButton.addEventListener('click',emitShortlistEvent)
 
 function emitShortlistEvent() {
 
-    // Emit a socket event named 'shortlistButtonClicked'
     console.log("button clicked")
     socket.emit('viewShortlist');
 }
 
-
-// Function to update the button text with the shortlist count
 function updateButtonCount(count) {
     shortlistButton.textContent = `Current Shortlist (${count})`;
 }
+
+function clearShortlistCounter(){
+    localStorage.setItem('shortlistCount', 0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

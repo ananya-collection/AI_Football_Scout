@@ -6,3 +6,15 @@ h4 {
     width: 25em;
     height: auto;
 }
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}

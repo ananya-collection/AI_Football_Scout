@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha --reporter spec --timeout 10000",
-    "start": "node app.js"
+    "start": "node app.js",
+    "e2e": "cypress open"
   },
   "author": "",
   "license": "ISC",
@@ -38,6 +39,7 @@
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.12",
+    "cypress": "^13.3.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "mocha": "^10.2.0",

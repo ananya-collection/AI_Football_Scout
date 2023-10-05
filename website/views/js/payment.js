@@ -16,7 +16,7 @@ const items = {'basic': 1, 'pro': 2, 'premium': 3}
                 },
                 body: JSON.stringify({
                     items: [
-                        { id: planId, quantity: 1} //TODO Pass the item value from ejs to js
+                        { id: planId, quantity: 1}
                     ],
                 }),
             })
