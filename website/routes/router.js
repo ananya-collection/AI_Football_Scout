@@ -242,13 +242,6 @@ router.post('/api/change-password', (req, res, next) => {
     }
 })
 
-router.get('/templogin', (req, res, next) => {
-    // Temporary hardcoded logined user 
-    res.cookie('username', 'bohdan');
-    res.redirect('/dashboardinput')
-    res.end()
-});
-
 router.get('/playerStats', (req, res) => {
     let userName = authController.userAuthorised(req)
 

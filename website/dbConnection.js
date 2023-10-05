@@ -11,11 +11,5 @@ const client = new MongoClient(uri, {
 
 client.connect();
 
-// mongoose connection set-up
-mongoose.connect(uri, {useNewUrlParser: true})
-const db = mongoose.connection;
-db.on("error", ()=>{console.log("Error in connection");})
-db.once("open", ()=>{console.log("MongoDB connected");})
-
 
 module.exports = client; 
