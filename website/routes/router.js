@@ -5,6 +5,7 @@ let router = express.Router();
 
 let controllerKmeans = require('../controller/kmeansController.js');
 let controllerReduce = require('../controller/reduceController.js');
+let controllerLogin = require('../controller/loginController.js');
 const cons = require("consolidate");
 const contactController = require('../controller/contactController');
 const ChangePasswordController = require('../controller/changePasswordController');
@@ -13,9 +14,11 @@ const authController = require('../controller/authController.js')
 const reduceUrl = 'http://localhost:3000/api/queryreduce';
 
 
+
+
 const stripe = require('stripe')(process.env.Secret_Key)
 
-const { initializeSocket,shortlist } = require('../views/js/socketManager.js');
+const { initializeSocket, shortlist } = require('../views/js/socketManager.js');
 
 
 // Define a route for generating AI predictions
@@ -41,7 +44,7 @@ router.post('/getdataforai', (req, res) => {
                 players.playerCategory = playerCategory.toLowerCase();
 
                 res.render('dashboardoutput', { players: players });
-                request.put({ url: reduceUrl, form: { action: -1 }, headers: {'cookie': `type=internal; username=${userName}`} });
+                request.put({ url: reduceUrl, form: { action: -1 }, headers: { 'cookie': `type=internal; username=${userName}` } });
 
             })
             .catch((error) => {
@@ -82,10 +85,11 @@ router.delete('/api/deleteaftertest', (req, res, next) => {
     if (typeof userName === "undefined") {
         res.json({ statusCode: 401, message: 'no auth data in header' })
     }
-    else { if (req.body.type === 'aiinput')
-              controllerKmeans.deleteRecord(req, res)
-           if (req.body.type === 'contact')
-              contactController.deleteRecord(req, res)
+    else {
+        if (req.body.type === 'aiinput')
+            controllerKmeans.deleteRecord(req, res)
+        if (req.body.type === 'contact')
+            contactController.deleteRecord(req, res)
     }
 });
 
@@ -128,13 +132,39 @@ router.get('/subscription', (req, res, next) => {
     res.render('subscription')
 })
 
-router.get('/login', (req, res, next) => {
-    res.render('loginSignup')
+router.get('/register', (req, res, next) => {
+    res.render('register')
 })
 
-router.get('/signup', (req, res, next) => {
-    res.render('signup')
+router.get('/login', (req, res, next) => {
+    res.render('login')
 })
+
+router.get('/signout', (req, res, next) => {
+    res.cookie('username', "");
+    res.redirect('/')
+})
+
+router.post('/register', (req, res, next) => {
+
+
+});
+
+router.post('/api/login', (req, res, next) => {
+        controllerLogin.login(req,res).then((responce)=> {
+        if (responce.statusCode === 202) {
+            res.cookie('username', responce.user);
+            res.redirect('/dashboardinput')
+        res.end()
+        }
+        else
+            res.redirect('/login')
+        }).catch((error) => {
+            console.error(error);
+        })
+})
+
+
 
 router.get('/dashboardinput', (req, res, next) => {
     let userName = authController.userAuthorised(req)
@@ -186,7 +216,7 @@ router.get('/userprofile', async (req, res, next) => {
     }
     else {
         const userData = await userController.getProfile(userName);
-        res.render('userprofile', { userData : userData})
+        res.render('userprofile', { userData: userData })
     }
 })
 
@@ -211,13 +241,6 @@ router.post('/api/change-password', (req, res, next) => {
         ChangePasswordController.changePassword(req, res, userName)
     }
 })
-
-router.get('/templogin', (req, res, next) => {
-    // Temporary hardcoded logined user 
-    res.cookie('username', 'bohdan');
-    res.redirect('/dashboardinput')
-    res.end()
-});
 
 router.get('/playerStats', (req, res) => {
     let userName = authController.userAuthorised(req)
@@ -246,7 +269,7 @@ const subPrices = new Map([
 ])
 
 router.post("/create-checkout-session", async (req, res) => {
-    
+
     try {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
@@ -294,13 +317,13 @@ router.get('/shortlist', (req, res, next) => {
     else {
         const shortlistArr = [];
         shortlist.forEach((jsonString) => {
-          const parsedJSON = JSON.parse(jsonString);
-          shortlistArr.push(parsedJSON);
+            const parsedJSON = JSON.parse(jsonString);
+            shortlistArr.push(parsedJSON);
         });
-        
+
         console.log("shortlist view ", shortlistArr)
-        res.render('shortlist', {shortlistArr : shortlistArr})
-       
+        res.render('shortlist', { shortlistArr: shortlistArr })
+
     }
 })
 

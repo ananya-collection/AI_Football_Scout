@@ -13,12 +13,6 @@ const { initializeSocket } = require('./views/js/socketManager');
 
 const io = initializeSocket(http);
 
-// Set up middleware to attach io to req
-app.use((req, res, next) => {
-    req.io = io;
-    next();
-});
-   
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

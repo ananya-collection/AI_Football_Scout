@@ -1,4 +1,5 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const { default: mongoose } = require('mongoose');
 const uri = "mongodb+srv://s223306781:hsqvYEXtTbQP6tyU@cluster0.owsu92k.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
     serverApi: {
@@ -9,5 +10,6 @@ const client = new MongoClient(uri, {
 });
 
 client.connect();
+
 
 module.exports = client; 
