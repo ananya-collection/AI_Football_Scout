@@ -155,7 +155,7 @@ router.post('/api/login', (req, res, next) => {
         if (responce.statusCode === 202) {
             res.cookie('username', responce.user);
             res.redirect('/dashboardinput')
-        res.end()
+            res.end()
         }
         else
             res.redirect('/login')

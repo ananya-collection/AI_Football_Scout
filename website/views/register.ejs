@@ -6,84 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Football Scout</title>
     <script src="https://kit.fontawesome.com/4147d4cbf3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- MaterializeCSS used for project https://materializecss.com/about.html -->
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified Jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/register.css">
-       
+
 </head>
+
 <body>
-    <header> 
+    <header>
         <nav>
             <div class="nav-wrapper">
                 <div class="container">
-                    <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg"
-                            alt="" width="55" height="55"></a>
+                    <a href="/"><img class="circle responsive-img" src="/images/project logo.jpg" alt="" width="55"
+                            height="55"></a>
                 </div>
-            </div>             
+            </div>
         </nav>
     </header>
     <main>
         <div class="container">
-            <div class="row">
-                <div class="form-box  col s12 offset s6 ">
-                    <h3 id="title">Sign Up</h3>          
+            <div class="container" id="container_main">
+                <div class="row" id="form_row">
                     <form>
-                        <div class="input-group">
-                            <div class="input-field" id="nameField">
-                                <i class="fa-solid fa-user"></i>  
-                                <input type="text" placeholder="Name" autocomplete="off" name="user">
-                            </div>
-                            <div class="input-field" id="email">
-                                <i class="fa-solid fa-envelope"></i>
-                                <input type="email" placeholder="Email" autocomplete="off" name="email">
-                            </div>
-                            <div class="input-field" id="password">
-                                <i class=" fa-solid fa-lock"></i>
-                                <input type="password" placeholder="Password" autocomplete="off" name="password">
-                            </div>
-                            <div class="input-field" id="conf_password">
-                                <i class=" fa-solid fa-lock"></i>
-                                <input type="password" placeholder="Confirm Password" autocomplete="off" name="confpassword">
-                            </div>
-                            <p>Already have an account?<a href="/login">Login</a></p>
-                        </div>
-                        <div class="btn-field">
-                            <button type="submit" id="signUpBtn" onclick="answerInput()">Sign up</button>
-                        </div>
+                        <div class="col s8">
+                            <div class="card-panel">
+                                <h3 id="title" class="center-align">Sign Up</h3>
+                                <div class="input-group">
+                                    <div class="input-field" id="nameField">
+                                        <i class="fa-solid fa-user"></i>
+                                        <input type="text" placeholder="Name" autocomplete="off" name="user">
+                                    </div>
+                                    <div class="input-field" id="email">
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <input type="email" placeholder="Email" autocomplete="off" name="email">
+                                    </div>
+                                    <div class="input-field" id="password">
+                                        <i class=" fa-solid fa-lock"></i>
+                                        <input type="password" placeholder="Password" autocomplete="off"
+                                            name="password">
+                                    </div>
+                                    <div class="input-field" id="conf_password">
+                                        <i class=" fa-solid fa-lock"></i>
+                                        <input type="password" placeholder="Confirm Password" autocomplete="off"
+                                            name="confpassword">
+                                    </div>
+                                    <p>Already have an account?<a href="/login">Login</a></p>
+                                </div>
+                                <div class="btn-field">
+                                    <button type="submit" id="signUpBtn">Sign up</button>
+                                </div>
                     </form>
                 </div>
-            </div>    
+            </div>
         </div>
-     </main>
+        </div>
+    </main>
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
                 © 2024 Deakin University
-                <a class="grey-text text-lighten-4 right" href="#!">deakin.edu.au</a>
+                <a class="grey-text text-lighten-4 right" href="https://www.deakin.edu.au/">deakin.edu.au</a>
             </div>
         </div>
     </footer>
-    <script src="/js/register.js"></script>
-
-    <!-- <script>
-        // let usrname;
-        // document.getElementById('nameField').innerHTML = usrname;
-        // console.log(usrname);
-
-        // let usrname;
-        // if (typeof usrname === "undefined") {
-        //     document.getElementById('nameField').innerHTML = usrname;
-        //     console.log(usrname);
-        //     }
-     </script> -->
-    
 </body>
 
 </html>
