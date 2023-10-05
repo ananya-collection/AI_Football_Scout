@@ -30,38 +30,42 @@
         </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="row">
-                <div class="form-box  col s12 offset s6 ">
-                    <h3 id="title">Sign Up</h3>          
-                    <form>
-                        <div class="input-group">
-                            <div class="input-field" id="nameField">
-                                <i class="fa-solid fa-user"></i>  
-                                <input type="text" placeholder="Name" autocomplete="off" name="user">
+        <div class="container" id="container_main">
+            <div class="row" id="form_row">
+            <form action="/api/register" method="post">
+                    <div class="col s8">
+                        <div class="card-panel">
+                            <h3 id="title" class="center-align">Sign Up</h3>
+
+                            <div class="input-group">
+                                <div class="input-field" id="name">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" placeholder="Name" name="user">
+                                </div>
+                                <div class="input-field" id="email">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <input type="email" placeholder="Email" name="email">
+                                </div>
+                                <div class="input-field" id="password">
+                                    <i class=" fa-solid fa-lock"></i>
+                                    <input type="password" placeholder="Password" autocomplete="on" name="password">
+                                </div>
+                                <div class="input-field" id="cnfpassword">
+                                    <i class=" fa-solid fa-lock"></i>
+                                    <input type="password" placeholder="Confirm Password" autocomplete="on" name="cnfpassword">
+                                </div>
+                                <p>Existing Account?<a href="/login">Login</a></p>
                             </div>
-                            <div class="input-field" id="email">
-                                <i class="fa-solid fa-envelope"></i>
-                                <input type="email" placeholder="Email" autocomplete="off" name="email">
+                            <div class="btn-field">
+                                <button type="submit" id="signUpBtn">Sign up</button>
                             </div>
-                            <div class="input-field" id="password">
-                                <i class=" fa-solid fa-lock"></i>
-                                <input type="password" placeholder="Password" autocomplete="off" name="password">
-                            </div>
-                            <div class="input-field" id="conf_password">
-                                <i class=" fa-solid fa-lock"></i>
-                                <input type="password" placeholder="Confirm Password" autocomplete="off" name="confpassword">
-                            </div>
-                            <p>Already have an account?<a href="/login">Login</a></p>
+
                         </div>
-                        <div class="btn-field">
-                            <button type="submit" id="signUpBtn" onclick="answerInput()">Sign up</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>    
+            </form>
         </div>
-     </main>
+    </main>
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
@@ -70,20 +74,6 @@
             </div>
         </div>
     </footer>
-    <script src="/js/register.js"></script>
-
-    <!-- <script>
-        // let usrname;
-        // document.getElementById('nameField').innerHTML = usrname;
-        // console.log(usrname);
-
-        // let usrname;
-        // if (typeof usrname === "undefined") {
-        //     document.getElementById('nameField').innerHTML = usrname;
-        //     console.log(usrname);
-        //     }
-     </script> -->
-    
+    <!-- <script src="/js/register.js"></script>     -->
 </body>
-
 </html>
