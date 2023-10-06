@@ -86,6 +86,9 @@ in command shell to start application.
 3. Website application sends a message in the console that it started, 
 please open the browser and visit the link http://localhost:3000/ which will display the homepage. 
 
+4. To login to the website to access the main part of the application use the following details,
+username: bohdan@test.com
+password: 12345
 
 ## Running the unit tests <a name = "tests"></a>
 
@@ -94,6 +97,15 @@ To start unit testing please input the command in the project folder.
 
 ```
 npm test
+```
+
+## Running the end to end tests <a name = "tests"></a>
+
+Project is using Cypress for end to end testing.
+To start unit testing please input the command in the project folder. 
+
+```
+npm run e2e
 ```
 
 ## Docummentation <a name = "documentation"></a>
