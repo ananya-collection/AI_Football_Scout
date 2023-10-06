@@ -64,6 +64,8 @@ password: myuniversityproject
 For Providing payments please add real Stripe API code! <b> Without Stripe API token payments don't work.</b> <br>
 BE CAREFUL with sharing API token, even test environment can be assessed by real API code, which leads to linked to banking account.
 
+Once you get the Secret and Publishable Key from your stripe account. Set up a  .env file and set Publishable_Key to your publishable key and Secret_Key to your secret key.
+
 
 ## Running the application <a name = "run"></a>
 
