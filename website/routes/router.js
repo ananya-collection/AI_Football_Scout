@@ -6,6 +6,7 @@ let router = express.Router();
 let controllerKmeans = require('../controller/kmeansController.js');
 let controllerReduce = require('../controller/reduceController.js');
 let controllerLogin = require('../controller/loginController.js');
+let controllerRegister = require('../controller/registerController.js');
 const cons = require("consolidate");
 const contactController = require('../controller/contactController');
 const ChangePasswordController = require('../controller/changePasswordController');
@@ -132,6 +133,7 @@ router.get('/subscription', (req, res, next) => {
     res.render('subscription')
 })
 
+
 router.get('/register', (req, res, next) => {
     res.render('register')
 })
@@ -145,10 +147,31 @@ router.get('/signout', (req, res, next) => {
     res.redirect('/')
 })
 
-router.post('/register', (req, res, next) => {
+// router.post('/api/register', (req, res, next) => {
+//         controllerRegister.signUp(req,res).then((response)=> {
+//             if (response.statusCode === 201) {
+//                 res.redirect('/login')
+//                 res.end()
+//             }
+//             else
+//                 res.redirect('/login')
+//             }).catch((error) => {
+//                 console.error(error);
+//             })
+// });
 
-
-});
+router.post('/api/register', (req, res, next) => {
+            controllerRegister.signUp(req,res).then((response)=> {
+            if (response.statusCode === 201) {
+                res.redirect('/login')
+                res.end()
+            }
+            else
+                res.redirect('/login')
+            }).catch((error) => {
+                console.error(error);
+            })
+})
 
 router.post('/api/login', (req, res, next) => {
         controllerLogin.login(req,res).then((responce)=> {
